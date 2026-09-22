@@ -1,0 +1,17 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.local
+    ports:
+      - "3000:3000"
+    volumes:
+      - crm-data:/app/data
+    environment:
+      - DATABASE_URL=file:/app/data/dev.db
+      # Add other environment variables here
+      # - NEXTAUTH_SECRET=your-secret
+      # - NEXTAUTH_URL=http://localhost:3000
+
+volumes:
+  crm-data:
