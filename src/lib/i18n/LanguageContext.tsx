@@ -14,38 +14,42 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 
 const SUPPORTED_LOCALES: Locale[] = ['zh-TW', 'en', 'ja'];
 
-function detectInitialLocale(): Locale {
-  if (typeof document === 'undefined') return 'zh-TW'; // SSR fallback
-
-  // 1. Check saved cookie preference first
-  const saved = document.cookie
-    .split('; ')
-    .find(row => row.startsWith('NEXT_LOCALE='))
-    ?.split('=')[1] as Locale;
-  if (saved && SUPPORTED_LOCALES.includes(saved)) return saved;
-
-  // 2. No cookie → detect from browser/system language
-  const lang = navigator.language; // e.g. "zh-TW", "zh-HK", "en-US", "ja-JP"
-  if (lang.startsWith('zh')) return 'zh-TW';
-  if (lang.startsWith('ja')) return 'ja';
-  if (lang.startsWith('en')) return 'en';
-
-  // 3. Default
-  return 'zh-TW';
+interface LanguageProviderProps {
+  children: React.ReactNode;
+  initialLocale?: Locale;
 }
 
-export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>(() => detectInitialLocale());
+export function LanguageProvider({ children, initialLocale = 'zh-TW' }: LanguageProviderProps) {
+  const [locale, setLocaleState] = useState<Locale>(initialLocale);
   const router = useRouter();
 
-  // On first load without a saved cookie, persist the detected locale so it survives
+  // On first load, sync client-side preferences after hydration without causing mismatch
   useEffect(() => {
-    const hasCookie = document.cookie.includes('NEXT_LOCALE=');
-    if (!hasCookie) {
-      document.cookie = `NEXT_LOCALE=${locale}; path=/; max-age=${60 * 60 * 24 * 365}`;
+    // 1. Check saved cookie preference first
+    const saved = document.cookie
+      .split('; ')
+      .find(row => row.startsWith('NEXT_LOCALE='))
+      ?.split('=')[1] as Locale;
+    
+    if (saved && SUPPORTED_LOCALES.includes(saved)) {
+      if (saved !== locale) {
+        setLocaleState(saved);
+      }
+    } else {
+      // 2. No cookie → detect from browser/system language
+      const lang = navigator.language.toLowerCase();
+      let detected: Locale = initialLocale;
+      if (lang.startsWith('zh')) detected = 'zh-TW';
+      else if (lang.startsWith('ja')) detected = 'ja';
+      else if (lang.startsWith('en')) detected = 'en';
+
+      if (detected !== locale) {
+        setLocaleState(detected);
+      }
+      document.cookie = `NEXT_LOCALE=${detected}; path=/; max-age=${60 * 60 * 24 * 365}`;
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []); // run once on mount only
+  }, []);
 
   const setLocale = (newLocale: Locale) => {
     setLocaleState(newLocale);
@@ -57,7 +61,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 
   const t = (key: TranslationKey): string => {
     const dict = (translations as any)[locale];
-    return dict?.[key] || (translations as any)['zh-TW'][key] || key;
+    return dict?.[key] || (translations as any)['zh-TW']?.[key] || key;
   };
 
   return (
