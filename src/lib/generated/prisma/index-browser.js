@@ -261,6 +261,44 @@ exports.Prisma.EmailTemplateScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.BroadcastCampaignScalarFieldEnum = {
+  id: 'id',
+  subject: 'subject',
+  tagName: 'tagName',
+  templateId: 'templateId',
+  senderId: 'senderId',
+  totalRecipients: 'totalRecipients',
+  successCount: 'successCount',
+  failedCount: 'failedCount',
+  openCount: 'openCount',
+  uniqueOpenCount: 'uniqueOpenCount',
+  clickCount: 'clickCount',
+  uniqueClickCount: 'uniqueClickCount',
+  status: 'status',
+  contentSnapshot: 'contentSnapshot',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.BroadcastRecipientScalarFieldEnum = {
+  id: 'id',
+  campaignId: 'campaignId',
+  email: 'email',
+  contactName: 'contactName',
+  companyName: 'companyName',
+  status: 'status',
+  errorMessage: 'errorMessage',
+  trackingToken: 'trackingToken',
+  openedAt: 'openedAt',
+  lastOpenedAt: 'lastOpenedAt',
+  openCount: 'openCount',
+  clickedAt: 'clickedAt',
+  lastClickedAt: 'lastClickedAt',
+  clickCount: 'clickCount',
+  lastClickedUrl: 'lastClickedUrl',
+  createdAt: 'createdAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -284,7 +322,9 @@ exports.Prisma.ModelName = {
   Tag: 'Tag',
   AutomationRule: 'AutomationRule',
   MarketingLog: 'MarketingLog',
-  EmailTemplate: 'EmailTemplate'
+  EmailTemplate: 'EmailTemplate',
+  BroadcastCampaign: 'BroadcastCampaign',
+  BroadcastRecipient: 'BroadcastRecipient'
 };
 
 /**

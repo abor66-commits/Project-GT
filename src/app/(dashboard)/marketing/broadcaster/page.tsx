@@ -14,7 +14,7 @@ export default async function BroadcasterPage() {
   ]);
 
   return (
-    <div style={{ maxWidth: '800px' }}>
+    <div style={{ maxWidth: '1000px', width: '100%' }}>
       <header style={{ marginBottom: '32px' }}>
         <h1 style={{ fontSize: '1.6rem', fontWeight: '800', marginBottom: '8px' }}>{t('marketing.broadcaster.title')}</h1>
         <p style={{ color: 'var(--text-muted)' }}>{t('marketing.broadcaster.subtitle' as any)}</p>

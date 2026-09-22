@@ -28,6 +28,7 @@ model User {
   activities    Activity[]
   opportunities Opportunity[]
   createdContacts Contact[]   @relation("ContactCreator")
+  broadcastCampaigns BroadcastCampaign[]
   
   createdAt     DateTime       @default(now())
   updatedAt     DateTime       @updatedAt
@@ -183,3 +184,52 @@ model EmailTemplate {
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 }
+
+model BroadcastCampaign {
+  id               String               @id @default(cuid())
+  subject          String
+  tagName          String               @map("tag_name")
+  templateId       String?              @map("template_id")
+  senderId         String               @map("sender_id")
+  sender           User                 @relation(fields: [senderId], references: [id])
+  totalRecipients  Int                  @default(0) @map("total_recipients")
+  successCount     Int                  @default(0) @map("success_count")
+  failedCount      Int                  @default(0) @map("failed_count")
+  openCount        Int                  @default(0) @map("open_count")
+  uniqueOpenCount  Int                  @default(0) @map("unique_open_count")
+  clickCount       Int                  @default(0) @map("click_count")
+  uniqueClickCount Int                  @default(0) @map("unique_click_count")
+  status           String               @default("COMPLETED") // SENDING, COMPLETED, FAILED
+  contentSnapshot  String?              @map("content_snapshot")
+  recipients       BroadcastRecipient[]
+  createdAt        DateTime             @default(now()) @map("created_at")
+  updatedAt        DateTime             @updatedAt @map("updated_at")
+
+  @@index([senderId])
+  @@index([tagName])
+}
+
+model BroadcastRecipient {
+  id             String            @id @default(cuid())
+  campaignId     String            @map("campaign_id")
+  campaign       BroadcastCampaign @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+  email          String
+  contactName    String            @map("contact_name")
+  companyName    String            @map("company_name")
+  status         String            @default("SENT") // SENT, FAILED
+  errorMessage   String?           @map("error_message")
+  trackingToken  String            @unique @map("tracking_token")
+  openedAt       DateTime?         @map("opened_at")
+  lastOpenedAt   DateTime?         @map("last_opened_at")
+  openCount      Int               @default(0) @map("open_count")
+  clickedAt      DateTime?         @map("clicked_at")
+  lastClickedAt  DateTime?         @map("last_clicked_at")
+  clickCount     Int               @default(0) @map("click_count")
+  lastClickedUrl String?           @map("last_clicked_url")
+  createdAt      DateTime          @default(now()) @map("created_at")
+
+  @@index([trackingToken])
+  @@index([campaignId])
+  @@index([email])
+}
+

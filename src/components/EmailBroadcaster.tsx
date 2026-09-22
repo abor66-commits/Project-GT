@@ -6,6 +6,7 @@ import RichEDMEditor from './RichEDMEditor';
 import TemplateManager from './TemplateManager';
 import EdmSettingsPanel from './EdmSettingsPanel';
 import EdmPreviewModal from './EdmPreviewModal';
+import BroadcastAnalytics from './BroadcastAnalytics';
 import { useTranslation } from '@/lib/i18n/LanguageContext';
 import { defaultEdmSettings, EdmSettings, composeEdmHtml } from '@/lib/edm/composeEdm';
 
@@ -33,6 +34,8 @@ interface Props {
 
 export default function EmailBroadcaster({ allTags, templates, currentUserId, userRole }: Props) {
   const { t } = useTranslation();
+  const [activeTab, setActiveTab] = useState<'compose' | 'analytics'>('compose');
+  const [lastCampaignId, setLastCampaignId] = useState<string | null>(null);
   const [isPending, startTransition] = useTransition();
   const [selectedTag, setSelectedTag] = useState('');
   const [subject, setSubject] = useState('');
@@ -73,7 +76,10 @@ export default function EmailBroadcaster({ allTags, templates, currentUserId, us
       });
       const result = await res.json();
       if (result.success) {
-        setStatus({ type: 'success', message: t('marketing.broadcaster.send_success') });
+        setStatus({ type: 'success', message: result.message || t('marketing.broadcaster.send_success') });
+        if (result.campaignId) {
+          setLastCampaignId(result.campaignId);
+        }
         setSubject('');
         setContent('');
         setEdmSettings(defaultEdmSettings);
@@ -85,10 +91,56 @@ export default function EmailBroadcaster({ allTags, templates, currentUserId, us
 
   return (
     <>
-      <div className="card shadow-sm">
-        <h2 style={{ fontSize: '1.2rem', marginBottom: '24px', fontWeight: '700' }}>
-          {t('marketing.broadcaster.title')}
-        </h2>
+      {/* ── Main Feature Tabs ── */}
+      <div style={{ display: 'flex', gap: '10px', marginBottom: '24px', borderBottom: '1px solid var(--border-color)', paddingBottom: '12px' }}>
+        <button
+          type="button"
+          onClick={() => setActiveTab('compose')}
+          style={{
+            padding: '10px 20px',
+            borderRadius: '12px',
+            fontSize: '0.95rem',
+            fontWeight: '700',
+            cursor: 'pointer',
+            border: 'none',
+            background: activeTab === 'compose' ? 'var(--primary)' : 'color-mix(in srgb, var(--text-main) 6%, transparent)',
+            color: activeTab === 'compose' ? 'white' : 'var(--text-main)',
+            boxShadow: activeTab === 'compose' ? '0 4px 12px rgba(37, 99, 235, 0.25)' : 'none',
+            transition: 'all 0.2s ease',
+          }}
+        >
+          {t('marketing.broadcaster.tab_compose')}
+        </button>
+        <button
+          type="button"
+          onClick={() => setActiveTab('analytics')}
+          style={{
+            padding: '10px 20px',
+            borderRadius: '12px',
+            fontSize: '0.95rem',
+            fontWeight: '700',
+            cursor: 'pointer',
+            border: 'none',
+            background: activeTab === 'analytics' ? 'var(--primary)' : 'color-mix(in srgb, var(--text-main) 6%, transparent)',
+            color: activeTab === 'analytics' ? 'white' : 'var(--text-main)',
+            boxShadow: activeTab === 'analytics' ? '0 4px 12px rgba(37, 99, 235, 0.25)' : 'none',
+            transition: 'all 0.2s ease',
+          }}
+        >
+          {t('marketing.broadcaster.tab_analytics')}
+        </button>
+      </div>
+
+      {activeTab === 'analytics' ? (
+        <BroadcastAnalytics
+          initialCampaignId={lastCampaignId}
+          onSelectCampaign={setLastCampaignId}
+        />
+      ) : (
+        <div className="card shadow-sm">
+          <h2 style={{ fontSize: '1.2rem', marginBottom: '24px', fontWeight: '700' }}>
+            {t('marketing.broadcaster.title')}
+          </h2>
 
         <div className="flex flex-col gap-md">
           {/* ── Segment & Subject ── */}
@@ -210,12 +262,34 @@ export default function EmailBroadcaster({ allTags, templates, currentUserId, us
             }}>
               <span>✅ {status.message}</span>
               {status.type === 'success' && (
-                <a
-                  href="/marketing/history"
-                  style={{ fontSize: '0.85rem', fontWeight: '700', color: '#166534', textDecoration: 'underline', whiteSpace: 'nowrap' }}
-                >
-                  查看發送紀錄 →
-                </a>
+                <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
+                  <button
+                    type="button"
+                    onClick={() => setActiveTab('analytics')}
+                    style={{
+                      background: '#166534',
+                      color: 'white',
+                      border: 'none',
+                      padding: '6px 12px',
+                      borderRadius: '6px',
+                      fontSize: '0.85rem',
+                      fontWeight: '700',
+                      cursor: 'pointer',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '4px'
+                    }}
+                  >
+                    <span>📊</span>
+                    <span>{t('marketing.broadcaster.view_analytics_btn')}</span>
+                  </button>
+                  <a
+                    href="/marketing/history"
+                    style={{ fontSize: '0.85rem', fontWeight: '700', color: '#166534', textDecoration: 'underline', whiteSpace: 'nowrap' }}
+                  >
+                    查看發送紀錄 →
+                  </a>
+                </div>
               )}
             </div>
           )}
@@ -226,14 +300,16 @@ export default function EmailBroadcaster({ allTags, templates, currentUserId, us
             <button
               type="button"
               onClick={() => setShowPreview(true)}
-              className="btn-ghost"
-              style={{ padding: '12px 20px', borderRadius: '8px', fontWeight: '700', flex: '0 0 auto', border: '1px solid var(--border-color)' }}
+              className="btn-secondary"
+              style={{ padding: '14px 20px', borderRadius: '8px', fontWeight: '600' }}
             >
-              👁️ {t('marketing.edm.preview_btn')}
+              🔍 預覽 EDM
             </button>
 
             {/* Send button */}
             <button
+              id="broadcaster-send-btn"
+              type="button"
               onClick={handleSend}
               disabled={isPending}
               className="btn-primary"
@@ -244,6 +320,7 @@ export default function EmailBroadcaster({ allTags, templates, currentUserId, us
           </div>
         </div>
       </div>
+      )}
 
       {/* ── EDM Preview Modal ── */}
       {showPreview && (

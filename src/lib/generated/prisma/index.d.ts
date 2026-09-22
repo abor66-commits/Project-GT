@@ -73,6 +73,16 @@ export type MarketingLog = $Result.DefaultSelection<Prisma.$MarketingLogPayload>
  * 
  */
 export type EmailTemplate = $Result.DefaultSelection<Prisma.$EmailTemplatePayload>
+/**
+ * Model BroadcastCampaign
+ * 
+ */
+export type BroadcastCampaign = $Result.DefaultSelection<Prisma.$BroadcastCampaignPayload>
+/**
+ * Model BroadcastRecipient
+ * 
+ */
+export type BroadcastRecipient = $Result.DefaultSelection<Prisma.$BroadcastRecipientPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -314,6 +324,26 @@ export class PrismaClient<
     * ```
     */
   get emailTemplate(): Prisma.EmailTemplateDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.broadcastCampaign`: Exposes CRUD operations for the **BroadcastCampaign** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more BroadcastCampaigns
+    * const broadcastCampaigns = await prisma.broadcastCampaign.findMany()
+    * ```
+    */
+  get broadcastCampaign(): Prisma.BroadcastCampaignDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.broadcastRecipient`: Exposes CRUD operations for the **BroadcastRecipient** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more BroadcastRecipients
+    * const broadcastRecipients = await prisma.broadcastRecipient.findMany()
+    * ```
+    */
+  get broadcastRecipient(): Prisma.BroadcastRecipientDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -759,7 +789,9 @@ export namespace Prisma {
     Tag: 'Tag',
     AutomationRule: 'AutomationRule',
     MarketingLog: 'MarketingLog',
-    EmailTemplate: 'EmailTemplate'
+    EmailTemplate: 'EmailTemplate',
+    BroadcastCampaign: 'BroadcastCampaign',
+    BroadcastRecipient: 'BroadcastRecipient'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -775,7 +807,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "company" | "contact" | "activity" | "opportunity" | "systemSetting" | "verificationCode" | "auditLog" | "tag" | "automationRule" | "marketingLog" | "emailTemplate"
+      modelProps: "user" | "company" | "contact" | "activity" | "opportunity" | "systemSetting" | "verificationCode" | "auditLog" | "tag" | "automationRule" | "marketingLog" | "emailTemplate" | "broadcastCampaign" | "broadcastRecipient"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1667,6 +1699,154 @@ export namespace Prisma {
           }
         }
       }
+      BroadcastCampaign: {
+        payload: Prisma.$BroadcastCampaignPayload<ExtArgs>
+        fields: Prisma.BroadcastCampaignFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.BroadcastCampaignFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BroadcastCampaignPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.BroadcastCampaignFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BroadcastCampaignPayload>
+          }
+          findFirst: {
+            args: Prisma.BroadcastCampaignFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BroadcastCampaignPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.BroadcastCampaignFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BroadcastCampaignPayload>
+          }
+          findMany: {
+            args: Prisma.BroadcastCampaignFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BroadcastCampaignPayload>[]
+          }
+          create: {
+            args: Prisma.BroadcastCampaignCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BroadcastCampaignPayload>
+          }
+          createMany: {
+            args: Prisma.BroadcastCampaignCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.BroadcastCampaignCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BroadcastCampaignPayload>[]
+          }
+          delete: {
+            args: Prisma.BroadcastCampaignDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BroadcastCampaignPayload>
+          }
+          update: {
+            args: Prisma.BroadcastCampaignUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BroadcastCampaignPayload>
+          }
+          deleteMany: {
+            args: Prisma.BroadcastCampaignDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.BroadcastCampaignUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.BroadcastCampaignUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BroadcastCampaignPayload>[]
+          }
+          upsert: {
+            args: Prisma.BroadcastCampaignUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BroadcastCampaignPayload>
+          }
+          aggregate: {
+            args: Prisma.BroadcastCampaignAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateBroadcastCampaign>
+          }
+          groupBy: {
+            args: Prisma.BroadcastCampaignGroupByArgs<ExtArgs>
+            result: $Utils.Optional<BroadcastCampaignGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.BroadcastCampaignCountArgs<ExtArgs>
+            result: $Utils.Optional<BroadcastCampaignCountAggregateOutputType> | number
+          }
+        }
+      }
+      BroadcastRecipient: {
+        payload: Prisma.$BroadcastRecipientPayload<ExtArgs>
+        fields: Prisma.BroadcastRecipientFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.BroadcastRecipientFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BroadcastRecipientPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.BroadcastRecipientFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BroadcastRecipientPayload>
+          }
+          findFirst: {
+            args: Prisma.BroadcastRecipientFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BroadcastRecipientPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.BroadcastRecipientFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BroadcastRecipientPayload>
+          }
+          findMany: {
+            args: Prisma.BroadcastRecipientFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BroadcastRecipientPayload>[]
+          }
+          create: {
+            args: Prisma.BroadcastRecipientCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BroadcastRecipientPayload>
+          }
+          createMany: {
+            args: Prisma.BroadcastRecipientCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.BroadcastRecipientCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BroadcastRecipientPayload>[]
+          }
+          delete: {
+            args: Prisma.BroadcastRecipientDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BroadcastRecipientPayload>
+          }
+          update: {
+            args: Prisma.BroadcastRecipientUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BroadcastRecipientPayload>
+          }
+          deleteMany: {
+            args: Prisma.BroadcastRecipientDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.BroadcastRecipientUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.BroadcastRecipientUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BroadcastRecipientPayload>[]
+          }
+          upsert: {
+            args: Prisma.BroadcastRecipientUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BroadcastRecipientPayload>
+          }
+          aggregate: {
+            args: Prisma.BroadcastRecipientAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateBroadcastRecipient>
+          }
+          groupBy: {
+            args: Prisma.BroadcastRecipientGroupByArgs<ExtArgs>
+            result: $Utils.Optional<BroadcastRecipientGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.BroadcastRecipientCountArgs<ExtArgs>
+            result: $Utils.Optional<BroadcastRecipientCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1787,6 +1967,8 @@ export namespace Prisma {
     automationRule?: AutomationRuleOmit
     marketingLog?: MarketingLogOmit
     emailTemplate?: EmailTemplateOmit
+    broadcastCampaign?: BroadcastCampaignOmit
+    broadcastRecipient?: BroadcastRecipientOmit
   }
 
   /* Types for Logging */
@@ -1871,6 +2053,7 @@ export namespace Prisma {
     activities: number
     opportunities: number
     createdContacts: number
+    broadcastCampaigns: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -1878,6 +2061,7 @@ export namespace Prisma {
     activities?: boolean | UserCountOutputTypeCountActivitiesArgs
     opportunities?: boolean | UserCountOutputTypeCountOpportunitiesArgs
     createdContacts?: boolean | UserCountOutputTypeCountCreatedContactsArgs
+    broadcastCampaigns?: boolean | UserCountOutputTypeCountBroadcastCampaignsArgs
   }
 
   // Custom InputTypes
@@ -1917,6 +2101,13 @@ export namespace Prisma {
    */
   export type UserCountOutputTypeCountCreatedContactsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: ContactWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountBroadcastCampaignsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BroadcastCampaignWhereInput
   }
 
 
@@ -2037,6 +2228,37 @@ export namespace Prisma {
    */
   export type TagCountOutputTypeCountContactsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: ContactWhereInput
+  }
+
+
+  /**
+   * Count Type BroadcastCampaignCountOutputType
+   */
+
+  export type BroadcastCampaignCountOutputType = {
+    recipients: number
+  }
+
+  export type BroadcastCampaignCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    recipients?: boolean | BroadcastCampaignCountOutputTypeCountRecipientsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * BroadcastCampaignCountOutputType without action
+   */
+  export type BroadcastCampaignCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BroadcastCampaignCountOutputType
+     */
+    select?: BroadcastCampaignCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * BroadcastCampaignCountOutputType without action
+   */
+  export type BroadcastCampaignCountOutputTypeCountRecipientsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BroadcastRecipientWhereInput
   }
 
 
@@ -2284,6 +2506,7 @@ export namespace Prisma {
     activities?: boolean | User$activitiesArgs<ExtArgs>
     opportunities?: boolean | User$opportunitiesArgs<ExtArgs>
     createdContacts?: boolean | User$createdContactsArgs<ExtArgs>
+    broadcastCampaigns?: boolean | User$broadcastCampaignsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -2344,6 +2567,7 @@ export namespace Prisma {
     activities?: boolean | User$activitiesArgs<ExtArgs>
     opportunities?: boolean | User$opportunitiesArgs<ExtArgs>
     createdContacts?: boolean | User$createdContactsArgs<ExtArgs>
+    broadcastCampaigns?: boolean | User$broadcastCampaignsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -2356,6 +2580,7 @@ export namespace Prisma {
       activities: Prisma.$ActivityPayload<ExtArgs>[]
       opportunities: Prisma.$OpportunityPayload<ExtArgs>[]
       createdContacts: Prisma.$ContactPayload<ExtArgs>[]
+      broadcastCampaigns: Prisma.$BroadcastCampaignPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -2770,6 +2995,7 @@ export namespace Prisma {
     activities<T extends User$activitiesArgs<ExtArgs> = {}>(args?: Subset<T, User$activitiesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ActivityPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     opportunities<T extends User$opportunitiesArgs<ExtArgs> = {}>(args?: Subset<T, User$opportunitiesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OpportunityPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     createdContacts<T extends User$createdContactsArgs<ExtArgs> = {}>(args?: Subset<T, User$createdContactsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ContactPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    broadcastCampaigns<T extends User$broadcastCampaignsArgs<ExtArgs> = {}>(args?: Subset<T, User$broadcastCampaignsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BroadcastCampaignPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3297,6 +3523,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: ContactScalarFieldEnum | ContactScalarFieldEnum[]
+  }
+
+  /**
+   * User.broadcastCampaigns
+   */
+  export type User$broadcastCampaignsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BroadcastCampaign
+     */
+    select?: BroadcastCampaignSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BroadcastCampaign
+     */
+    omit?: BroadcastCampaignOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BroadcastCampaignInclude<ExtArgs> | null
+    where?: BroadcastCampaignWhereInput
+    orderBy?: BroadcastCampaignOrderByWithRelationInput | BroadcastCampaignOrderByWithRelationInput[]
+    cursor?: BroadcastCampaignWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: BroadcastCampaignScalarFieldEnum | BroadcastCampaignScalarFieldEnum[]
   }
 
   /**
@@ -15378,6 +15628,2540 @@ export namespace Prisma {
 
 
   /**
+   * Model BroadcastCampaign
+   */
+
+  export type AggregateBroadcastCampaign = {
+    _count: BroadcastCampaignCountAggregateOutputType | null
+    _avg: BroadcastCampaignAvgAggregateOutputType | null
+    _sum: BroadcastCampaignSumAggregateOutputType | null
+    _min: BroadcastCampaignMinAggregateOutputType | null
+    _max: BroadcastCampaignMaxAggregateOutputType | null
+  }
+
+  export type BroadcastCampaignAvgAggregateOutputType = {
+    totalRecipients: number | null
+    successCount: number | null
+    failedCount: number | null
+    openCount: number | null
+    uniqueOpenCount: number | null
+    clickCount: number | null
+    uniqueClickCount: number | null
+  }
+
+  export type BroadcastCampaignSumAggregateOutputType = {
+    totalRecipients: number | null
+    successCount: number | null
+    failedCount: number | null
+    openCount: number | null
+    uniqueOpenCount: number | null
+    clickCount: number | null
+    uniqueClickCount: number | null
+  }
+
+  export type BroadcastCampaignMinAggregateOutputType = {
+    id: string | null
+    subject: string | null
+    tagName: string | null
+    templateId: string | null
+    senderId: string | null
+    totalRecipients: number | null
+    successCount: number | null
+    failedCount: number | null
+    openCount: number | null
+    uniqueOpenCount: number | null
+    clickCount: number | null
+    uniqueClickCount: number | null
+    status: string | null
+    contentSnapshot: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type BroadcastCampaignMaxAggregateOutputType = {
+    id: string | null
+    subject: string | null
+    tagName: string | null
+    templateId: string | null
+    senderId: string | null
+    totalRecipients: number | null
+    successCount: number | null
+    failedCount: number | null
+    openCount: number | null
+    uniqueOpenCount: number | null
+    clickCount: number | null
+    uniqueClickCount: number | null
+    status: string | null
+    contentSnapshot: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type BroadcastCampaignCountAggregateOutputType = {
+    id: number
+    subject: number
+    tagName: number
+    templateId: number
+    senderId: number
+    totalRecipients: number
+    successCount: number
+    failedCount: number
+    openCount: number
+    uniqueOpenCount: number
+    clickCount: number
+    uniqueClickCount: number
+    status: number
+    contentSnapshot: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type BroadcastCampaignAvgAggregateInputType = {
+    totalRecipients?: true
+    successCount?: true
+    failedCount?: true
+    openCount?: true
+    uniqueOpenCount?: true
+    clickCount?: true
+    uniqueClickCount?: true
+  }
+
+  export type BroadcastCampaignSumAggregateInputType = {
+    totalRecipients?: true
+    successCount?: true
+    failedCount?: true
+    openCount?: true
+    uniqueOpenCount?: true
+    clickCount?: true
+    uniqueClickCount?: true
+  }
+
+  export type BroadcastCampaignMinAggregateInputType = {
+    id?: true
+    subject?: true
+    tagName?: true
+    templateId?: true
+    senderId?: true
+    totalRecipients?: true
+    successCount?: true
+    failedCount?: true
+    openCount?: true
+    uniqueOpenCount?: true
+    clickCount?: true
+    uniqueClickCount?: true
+    status?: true
+    contentSnapshot?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type BroadcastCampaignMaxAggregateInputType = {
+    id?: true
+    subject?: true
+    tagName?: true
+    templateId?: true
+    senderId?: true
+    totalRecipients?: true
+    successCount?: true
+    failedCount?: true
+    openCount?: true
+    uniqueOpenCount?: true
+    clickCount?: true
+    uniqueClickCount?: true
+    status?: true
+    contentSnapshot?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type BroadcastCampaignCountAggregateInputType = {
+    id?: true
+    subject?: true
+    tagName?: true
+    templateId?: true
+    senderId?: true
+    totalRecipients?: true
+    successCount?: true
+    failedCount?: true
+    openCount?: true
+    uniqueOpenCount?: true
+    clickCount?: true
+    uniqueClickCount?: true
+    status?: true
+    contentSnapshot?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type BroadcastCampaignAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which BroadcastCampaign to aggregate.
+     */
+    where?: BroadcastCampaignWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BroadcastCampaigns to fetch.
+     */
+    orderBy?: BroadcastCampaignOrderByWithRelationInput | BroadcastCampaignOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: BroadcastCampaignWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BroadcastCampaigns from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BroadcastCampaigns.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned BroadcastCampaigns
+    **/
+    _count?: true | BroadcastCampaignCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: BroadcastCampaignAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: BroadcastCampaignSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: BroadcastCampaignMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: BroadcastCampaignMaxAggregateInputType
+  }
+
+  export type GetBroadcastCampaignAggregateType<T extends BroadcastCampaignAggregateArgs> = {
+        [P in keyof T & keyof AggregateBroadcastCampaign]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateBroadcastCampaign[P]>
+      : GetScalarType<T[P], AggregateBroadcastCampaign[P]>
+  }
+
+
+
+
+  export type BroadcastCampaignGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BroadcastCampaignWhereInput
+    orderBy?: BroadcastCampaignOrderByWithAggregationInput | BroadcastCampaignOrderByWithAggregationInput[]
+    by: BroadcastCampaignScalarFieldEnum[] | BroadcastCampaignScalarFieldEnum
+    having?: BroadcastCampaignScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: BroadcastCampaignCountAggregateInputType | true
+    _avg?: BroadcastCampaignAvgAggregateInputType
+    _sum?: BroadcastCampaignSumAggregateInputType
+    _min?: BroadcastCampaignMinAggregateInputType
+    _max?: BroadcastCampaignMaxAggregateInputType
+  }
+
+  export type BroadcastCampaignGroupByOutputType = {
+    id: string
+    subject: string
+    tagName: string
+    templateId: string | null
+    senderId: string
+    totalRecipients: number
+    successCount: number
+    failedCount: number
+    openCount: number
+    uniqueOpenCount: number
+    clickCount: number
+    uniqueClickCount: number
+    status: string
+    contentSnapshot: string | null
+    createdAt: Date
+    updatedAt: Date
+    _count: BroadcastCampaignCountAggregateOutputType | null
+    _avg: BroadcastCampaignAvgAggregateOutputType | null
+    _sum: BroadcastCampaignSumAggregateOutputType | null
+    _min: BroadcastCampaignMinAggregateOutputType | null
+    _max: BroadcastCampaignMaxAggregateOutputType | null
+  }
+
+  type GetBroadcastCampaignGroupByPayload<T extends BroadcastCampaignGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<BroadcastCampaignGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof BroadcastCampaignGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], BroadcastCampaignGroupByOutputType[P]>
+            : GetScalarType<T[P], BroadcastCampaignGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type BroadcastCampaignSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    subject?: boolean
+    tagName?: boolean
+    templateId?: boolean
+    senderId?: boolean
+    totalRecipients?: boolean
+    successCount?: boolean
+    failedCount?: boolean
+    openCount?: boolean
+    uniqueOpenCount?: boolean
+    clickCount?: boolean
+    uniqueClickCount?: boolean
+    status?: boolean
+    contentSnapshot?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    sender?: boolean | UserDefaultArgs<ExtArgs>
+    recipients?: boolean | BroadcastCampaign$recipientsArgs<ExtArgs>
+    _count?: boolean | BroadcastCampaignCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["broadcastCampaign"]>
+
+  export type BroadcastCampaignSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    subject?: boolean
+    tagName?: boolean
+    templateId?: boolean
+    senderId?: boolean
+    totalRecipients?: boolean
+    successCount?: boolean
+    failedCount?: boolean
+    openCount?: boolean
+    uniqueOpenCount?: boolean
+    clickCount?: boolean
+    uniqueClickCount?: boolean
+    status?: boolean
+    contentSnapshot?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    sender?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["broadcastCampaign"]>
+
+  export type BroadcastCampaignSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    subject?: boolean
+    tagName?: boolean
+    templateId?: boolean
+    senderId?: boolean
+    totalRecipients?: boolean
+    successCount?: boolean
+    failedCount?: boolean
+    openCount?: boolean
+    uniqueOpenCount?: boolean
+    clickCount?: boolean
+    uniqueClickCount?: boolean
+    status?: boolean
+    contentSnapshot?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    sender?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["broadcastCampaign"]>
+
+  export type BroadcastCampaignSelectScalar = {
+    id?: boolean
+    subject?: boolean
+    tagName?: boolean
+    templateId?: boolean
+    senderId?: boolean
+    totalRecipients?: boolean
+    successCount?: boolean
+    failedCount?: boolean
+    openCount?: boolean
+    uniqueOpenCount?: boolean
+    clickCount?: boolean
+    uniqueClickCount?: boolean
+    status?: boolean
+    contentSnapshot?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type BroadcastCampaignOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "subject" | "tagName" | "templateId" | "senderId" | "totalRecipients" | "successCount" | "failedCount" | "openCount" | "uniqueOpenCount" | "clickCount" | "uniqueClickCount" | "status" | "contentSnapshot" | "createdAt" | "updatedAt", ExtArgs["result"]["broadcastCampaign"]>
+  export type BroadcastCampaignInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    sender?: boolean | UserDefaultArgs<ExtArgs>
+    recipients?: boolean | BroadcastCampaign$recipientsArgs<ExtArgs>
+    _count?: boolean | BroadcastCampaignCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type BroadcastCampaignIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    sender?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type BroadcastCampaignIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    sender?: boolean | UserDefaultArgs<ExtArgs>
+  }
+
+  export type $BroadcastCampaignPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "BroadcastCampaign"
+    objects: {
+      sender: Prisma.$UserPayload<ExtArgs>
+      recipients: Prisma.$BroadcastRecipientPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      subject: string
+      tagName: string
+      templateId: string | null
+      senderId: string
+      totalRecipients: number
+      successCount: number
+      failedCount: number
+      openCount: number
+      uniqueOpenCount: number
+      clickCount: number
+      uniqueClickCount: number
+      status: string
+      contentSnapshot: string | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["broadcastCampaign"]>
+    composites: {}
+  }
+
+  type BroadcastCampaignGetPayload<S extends boolean | null | undefined | BroadcastCampaignDefaultArgs> = $Result.GetResult<Prisma.$BroadcastCampaignPayload, S>
+
+  type BroadcastCampaignCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<BroadcastCampaignFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: BroadcastCampaignCountAggregateInputType | true
+    }
+
+  export interface BroadcastCampaignDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['BroadcastCampaign'], meta: { name: 'BroadcastCampaign' } }
+    /**
+     * Find zero or one BroadcastCampaign that matches the filter.
+     * @param {BroadcastCampaignFindUniqueArgs} args - Arguments to find a BroadcastCampaign
+     * @example
+     * // Get one BroadcastCampaign
+     * const broadcastCampaign = await prisma.broadcastCampaign.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends BroadcastCampaignFindUniqueArgs>(args: SelectSubset<T, BroadcastCampaignFindUniqueArgs<ExtArgs>>): Prisma__BroadcastCampaignClient<$Result.GetResult<Prisma.$BroadcastCampaignPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one BroadcastCampaign that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {BroadcastCampaignFindUniqueOrThrowArgs} args - Arguments to find a BroadcastCampaign
+     * @example
+     * // Get one BroadcastCampaign
+     * const broadcastCampaign = await prisma.broadcastCampaign.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends BroadcastCampaignFindUniqueOrThrowArgs>(args: SelectSubset<T, BroadcastCampaignFindUniqueOrThrowArgs<ExtArgs>>): Prisma__BroadcastCampaignClient<$Result.GetResult<Prisma.$BroadcastCampaignPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first BroadcastCampaign that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BroadcastCampaignFindFirstArgs} args - Arguments to find a BroadcastCampaign
+     * @example
+     * // Get one BroadcastCampaign
+     * const broadcastCampaign = await prisma.broadcastCampaign.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends BroadcastCampaignFindFirstArgs>(args?: SelectSubset<T, BroadcastCampaignFindFirstArgs<ExtArgs>>): Prisma__BroadcastCampaignClient<$Result.GetResult<Prisma.$BroadcastCampaignPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first BroadcastCampaign that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BroadcastCampaignFindFirstOrThrowArgs} args - Arguments to find a BroadcastCampaign
+     * @example
+     * // Get one BroadcastCampaign
+     * const broadcastCampaign = await prisma.broadcastCampaign.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends BroadcastCampaignFindFirstOrThrowArgs>(args?: SelectSubset<T, BroadcastCampaignFindFirstOrThrowArgs<ExtArgs>>): Prisma__BroadcastCampaignClient<$Result.GetResult<Prisma.$BroadcastCampaignPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more BroadcastCampaigns that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BroadcastCampaignFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all BroadcastCampaigns
+     * const broadcastCampaigns = await prisma.broadcastCampaign.findMany()
+     * 
+     * // Get first 10 BroadcastCampaigns
+     * const broadcastCampaigns = await prisma.broadcastCampaign.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const broadcastCampaignWithIdOnly = await prisma.broadcastCampaign.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends BroadcastCampaignFindManyArgs>(args?: SelectSubset<T, BroadcastCampaignFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BroadcastCampaignPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a BroadcastCampaign.
+     * @param {BroadcastCampaignCreateArgs} args - Arguments to create a BroadcastCampaign.
+     * @example
+     * // Create one BroadcastCampaign
+     * const BroadcastCampaign = await prisma.broadcastCampaign.create({
+     *   data: {
+     *     // ... data to create a BroadcastCampaign
+     *   }
+     * })
+     * 
+     */
+    create<T extends BroadcastCampaignCreateArgs>(args: SelectSubset<T, BroadcastCampaignCreateArgs<ExtArgs>>): Prisma__BroadcastCampaignClient<$Result.GetResult<Prisma.$BroadcastCampaignPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many BroadcastCampaigns.
+     * @param {BroadcastCampaignCreateManyArgs} args - Arguments to create many BroadcastCampaigns.
+     * @example
+     * // Create many BroadcastCampaigns
+     * const broadcastCampaign = await prisma.broadcastCampaign.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends BroadcastCampaignCreateManyArgs>(args?: SelectSubset<T, BroadcastCampaignCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many BroadcastCampaigns and returns the data saved in the database.
+     * @param {BroadcastCampaignCreateManyAndReturnArgs} args - Arguments to create many BroadcastCampaigns.
+     * @example
+     * // Create many BroadcastCampaigns
+     * const broadcastCampaign = await prisma.broadcastCampaign.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many BroadcastCampaigns and only return the `id`
+     * const broadcastCampaignWithIdOnly = await prisma.broadcastCampaign.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends BroadcastCampaignCreateManyAndReturnArgs>(args?: SelectSubset<T, BroadcastCampaignCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BroadcastCampaignPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a BroadcastCampaign.
+     * @param {BroadcastCampaignDeleteArgs} args - Arguments to delete one BroadcastCampaign.
+     * @example
+     * // Delete one BroadcastCampaign
+     * const BroadcastCampaign = await prisma.broadcastCampaign.delete({
+     *   where: {
+     *     // ... filter to delete one BroadcastCampaign
+     *   }
+     * })
+     * 
+     */
+    delete<T extends BroadcastCampaignDeleteArgs>(args: SelectSubset<T, BroadcastCampaignDeleteArgs<ExtArgs>>): Prisma__BroadcastCampaignClient<$Result.GetResult<Prisma.$BroadcastCampaignPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one BroadcastCampaign.
+     * @param {BroadcastCampaignUpdateArgs} args - Arguments to update one BroadcastCampaign.
+     * @example
+     * // Update one BroadcastCampaign
+     * const broadcastCampaign = await prisma.broadcastCampaign.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends BroadcastCampaignUpdateArgs>(args: SelectSubset<T, BroadcastCampaignUpdateArgs<ExtArgs>>): Prisma__BroadcastCampaignClient<$Result.GetResult<Prisma.$BroadcastCampaignPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more BroadcastCampaigns.
+     * @param {BroadcastCampaignDeleteManyArgs} args - Arguments to filter BroadcastCampaigns to delete.
+     * @example
+     * // Delete a few BroadcastCampaigns
+     * const { count } = await prisma.broadcastCampaign.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends BroadcastCampaignDeleteManyArgs>(args?: SelectSubset<T, BroadcastCampaignDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more BroadcastCampaigns.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BroadcastCampaignUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many BroadcastCampaigns
+     * const broadcastCampaign = await prisma.broadcastCampaign.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends BroadcastCampaignUpdateManyArgs>(args: SelectSubset<T, BroadcastCampaignUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more BroadcastCampaigns and returns the data updated in the database.
+     * @param {BroadcastCampaignUpdateManyAndReturnArgs} args - Arguments to update many BroadcastCampaigns.
+     * @example
+     * // Update many BroadcastCampaigns
+     * const broadcastCampaign = await prisma.broadcastCampaign.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more BroadcastCampaigns and only return the `id`
+     * const broadcastCampaignWithIdOnly = await prisma.broadcastCampaign.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends BroadcastCampaignUpdateManyAndReturnArgs>(args: SelectSubset<T, BroadcastCampaignUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BroadcastCampaignPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one BroadcastCampaign.
+     * @param {BroadcastCampaignUpsertArgs} args - Arguments to update or create a BroadcastCampaign.
+     * @example
+     * // Update or create a BroadcastCampaign
+     * const broadcastCampaign = await prisma.broadcastCampaign.upsert({
+     *   create: {
+     *     // ... data to create a BroadcastCampaign
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the BroadcastCampaign we want to update
+     *   }
+     * })
+     */
+    upsert<T extends BroadcastCampaignUpsertArgs>(args: SelectSubset<T, BroadcastCampaignUpsertArgs<ExtArgs>>): Prisma__BroadcastCampaignClient<$Result.GetResult<Prisma.$BroadcastCampaignPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of BroadcastCampaigns.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BroadcastCampaignCountArgs} args - Arguments to filter BroadcastCampaigns to count.
+     * @example
+     * // Count the number of BroadcastCampaigns
+     * const count = await prisma.broadcastCampaign.count({
+     *   where: {
+     *     // ... the filter for the BroadcastCampaigns we want to count
+     *   }
+     * })
+    **/
+    count<T extends BroadcastCampaignCountArgs>(
+      args?: Subset<T, BroadcastCampaignCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], BroadcastCampaignCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a BroadcastCampaign.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BroadcastCampaignAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends BroadcastCampaignAggregateArgs>(args: Subset<T, BroadcastCampaignAggregateArgs>): Prisma.PrismaPromise<GetBroadcastCampaignAggregateType<T>>
+
+    /**
+     * Group by BroadcastCampaign.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BroadcastCampaignGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends BroadcastCampaignGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: BroadcastCampaignGroupByArgs['orderBy'] }
+        : { orderBy?: BroadcastCampaignGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, BroadcastCampaignGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetBroadcastCampaignGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the BroadcastCampaign model
+   */
+  readonly fields: BroadcastCampaignFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for BroadcastCampaign.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__BroadcastCampaignClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    sender<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    recipients<T extends BroadcastCampaign$recipientsArgs<ExtArgs> = {}>(args?: Subset<T, BroadcastCampaign$recipientsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BroadcastRecipientPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the BroadcastCampaign model
+   */
+  interface BroadcastCampaignFieldRefs {
+    readonly id: FieldRef<"BroadcastCampaign", 'String'>
+    readonly subject: FieldRef<"BroadcastCampaign", 'String'>
+    readonly tagName: FieldRef<"BroadcastCampaign", 'String'>
+    readonly templateId: FieldRef<"BroadcastCampaign", 'String'>
+    readonly senderId: FieldRef<"BroadcastCampaign", 'String'>
+    readonly totalRecipients: FieldRef<"BroadcastCampaign", 'Int'>
+    readonly successCount: FieldRef<"BroadcastCampaign", 'Int'>
+    readonly failedCount: FieldRef<"BroadcastCampaign", 'Int'>
+    readonly openCount: FieldRef<"BroadcastCampaign", 'Int'>
+    readonly uniqueOpenCount: FieldRef<"BroadcastCampaign", 'Int'>
+    readonly clickCount: FieldRef<"BroadcastCampaign", 'Int'>
+    readonly uniqueClickCount: FieldRef<"BroadcastCampaign", 'Int'>
+    readonly status: FieldRef<"BroadcastCampaign", 'String'>
+    readonly contentSnapshot: FieldRef<"BroadcastCampaign", 'String'>
+    readonly createdAt: FieldRef<"BroadcastCampaign", 'DateTime'>
+    readonly updatedAt: FieldRef<"BroadcastCampaign", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * BroadcastCampaign findUnique
+   */
+  export type BroadcastCampaignFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BroadcastCampaign
+     */
+    select?: BroadcastCampaignSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BroadcastCampaign
+     */
+    omit?: BroadcastCampaignOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BroadcastCampaignInclude<ExtArgs> | null
+    /**
+     * Filter, which BroadcastCampaign to fetch.
+     */
+    where: BroadcastCampaignWhereUniqueInput
+  }
+
+  /**
+   * BroadcastCampaign findUniqueOrThrow
+   */
+  export type BroadcastCampaignFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BroadcastCampaign
+     */
+    select?: BroadcastCampaignSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BroadcastCampaign
+     */
+    omit?: BroadcastCampaignOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BroadcastCampaignInclude<ExtArgs> | null
+    /**
+     * Filter, which BroadcastCampaign to fetch.
+     */
+    where: BroadcastCampaignWhereUniqueInput
+  }
+
+  /**
+   * BroadcastCampaign findFirst
+   */
+  export type BroadcastCampaignFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BroadcastCampaign
+     */
+    select?: BroadcastCampaignSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BroadcastCampaign
+     */
+    omit?: BroadcastCampaignOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BroadcastCampaignInclude<ExtArgs> | null
+    /**
+     * Filter, which BroadcastCampaign to fetch.
+     */
+    where?: BroadcastCampaignWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BroadcastCampaigns to fetch.
+     */
+    orderBy?: BroadcastCampaignOrderByWithRelationInput | BroadcastCampaignOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for BroadcastCampaigns.
+     */
+    cursor?: BroadcastCampaignWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BroadcastCampaigns from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BroadcastCampaigns.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of BroadcastCampaigns.
+     */
+    distinct?: BroadcastCampaignScalarFieldEnum | BroadcastCampaignScalarFieldEnum[]
+  }
+
+  /**
+   * BroadcastCampaign findFirstOrThrow
+   */
+  export type BroadcastCampaignFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BroadcastCampaign
+     */
+    select?: BroadcastCampaignSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BroadcastCampaign
+     */
+    omit?: BroadcastCampaignOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BroadcastCampaignInclude<ExtArgs> | null
+    /**
+     * Filter, which BroadcastCampaign to fetch.
+     */
+    where?: BroadcastCampaignWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BroadcastCampaigns to fetch.
+     */
+    orderBy?: BroadcastCampaignOrderByWithRelationInput | BroadcastCampaignOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for BroadcastCampaigns.
+     */
+    cursor?: BroadcastCampaignWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BroadcastCampaigns from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BroadcastCampaigns.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of BroadcastCampaigns.
+     */
+    distinct?: BroadcastCampaignScalarFieldEnum | BroadcastCampaignScalarFieldEnum[]
+  }
+
+  /**
+   * BroadcastCampaign findMany
+   */
+  export type BroadcastCampaignFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BroadcastCampaign
+     */
+    select?: BroadcastCampaignSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BroadcastCampaign
+     */
+    omit?: BroadcastCampaignOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BroadcastCampaignInclude<ExtArgs> | null
+    /**
+     * Filter, which BroadcastCampaigns to fetch.
+     */
+    where?: BroadcastCampaignWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BroadcastCampaigns to fetch.
+     */
+    orderBy?: BroadcastCampaignOrderByWithRelationInput | BroadcastCampaignOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing BroadcastCampaigns.
+     */
+    cursor?: BroadcastCampaignWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BroadcastCampaigns from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BroadcastCampaigns.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of BroadcastCampaigns.
+     */
+    distinct?: BroadcastCampaignScalarFieldEnum | BroadcastCampaignScalarFieldEnum[]
+  }
+
+  /**
+   * BroadcastCampaign create
+   */
+  export type BroadcastCampaignCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BroadcastCampaign
+     */
+    select?: BroadcastCampaignSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BroadcastCampaign
+     */
+    omit?: BroadcastCampaignOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BroadcastCampaignInclude<ExtArgs> | null
+    /**
+     * The data needed to create a BroadcastCampaign.
+     */
+    data: XOR<BroadcastCampaignCreateInput, BroadcastCampaignUncheckedCreateInput>
+  }
+
+  /**
+   * BroadcastCampaign createMany
+   */
+  export type BroadcastCampaignCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many BroadcastCampaigns.
+     */
+    data: BroadcastCampaignCreateManyInput | BroadcastCampaignCreateManyInput[]
+  }
+
+  /**
+   * BroadcastCampaign createManyAndReturn
+   */
+  export type BroadcastCampaignCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BroadcastCampaign
+     */
+    select?: BroadcastCampaignSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the BroadcastCampaign
+     */
+    omit?: BroadcastCampaignOmit<ExtArgs> | null
+    /**
+     * The data used to create many BroadcastCampaigns.
+     */
+    data: BroadcastCampaignCreateManyInput | BroadcastCampaignCreateManyInput[]
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BroadcastCampaignIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * BroadcastCampaign update
+   */
+  export type BroadcastCampaignUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BroadcastCampaign
+     */
+    select?: BroadcastCampaignSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BroadcastCampaign
+     */
+    omit?: BroadcastCampaignOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BroadcastCampaignInclude<ExtArgs> | null
+    /**
+     * The data needed to update a BroadcastCampaign.
+     */
+    data: XOR<BroadcastCampaignUpdateInput, BroadcastCampaignUncheckedUpdateInput>
+    /**
+     * Choose, which BroadcastCampaign to update.
+     */
+    where: BroadcastCampaignWhereUniqueInput
+  }
+
+  /**
+   * BroadcastCampaign updateMany
+   */
+  export type BroadcastCampaignUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update BroadcastCampaigns.
+     */
+    data: XOR<BroadcastCampaignUpdateManyMutationInput, BroadcastCampaignUncheckedUpdateManyInput>
+    /**
+     * Filter which BroadcastCampaigns to update
+     */
+    where?: BroadcastCampaignWhereInput
+    /**
+     * Limit how many BroadcastCampaigns to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * BroadcastCampaign updateManyAndReturn
+   */
+  export type BroadcastCampaignUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BroadcastCampaign
+     */
+    select?: BroadcastCampaignSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the BroadcastCampaign
+     */
+    omit?: BroadcastCampaignOmit<ExtArgs> | null
+    /**
+     * The data used to update BroadcastCampaigns.
+     */
+    data: XOR<BroadcastCampaignUpdateManyMutationInput, BroadcastCampaignUncheckedUpdateManyInput>
+    /**
+     * Filter which BroadcastCampaigns to update
+     */
+    where?: BroadcastCampaignWhereInput
+    /**
+     * Limit how many BroadcastCampaigns to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BroadcastCampaignIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * BroadcastCampaign upsert
+   */
+  export type BroadcastCampaignUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BroadcastCampaign
+     */
+    select?: BroadcastCampaignSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BroadcastCampaign
+     */
+    omit?: BroadcastCampaignOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BroadcastCampaignInclude<ExtArgs> | null
+    /**
+     * The filter to search for the BroadcastCampaign to update in case it exists.
+     */
+    where: BroadcastCampaignWhereUniqueInput
+    /**
+     * In case the BroadcastCampaign found by the `where` argument doesn't exist, create a new BroadcastCampaign with this data.
+     */
+    create: XOR<BroadcastCampaignCreateInput, BroadcastCampaignUncheckedCreateInput>
+    /**
+     * In case the BroadcastCampaign was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<BroadcastCampaignUpdateInput, BroadcastCampaignUncheckedUpdateInput>
+  }
+
+  /**
+   * BroadcastCampaign delete
+   */
+  export type BroadcastCampaignDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BroadcastCampaign
+     */
+    select?: BroadcastCampaignSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BroadcastCampaign
+     */
+    omit?: BroadcastCampaignOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BroadcastCampaignInclude<ExtArgs> | null
+    /**
+     * Filter which BroadcastCampaign to delete.
+     */
+    where: BroadcastCampaignWhereUniqueInput
+  }
+
+  /**
+   * BroadcastCampaign deleteMany
+   */
+  export type BroadcastCampaignDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which BroadcastCampaigns to delete
+     */
+    where?: BroadcastCampaignWhereInput
+    /**
+     * Limit how many BroadcastCampaigns to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * BroadcastCampaign.recipients
+   */
+  export type BroadcastCampaign$recipientsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BroadcastRecipient
+     */
+    select?: BroadcastRecipientSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BroadcastRecipient
+     */
+    omit?: BroadcastRecipientOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BroadcastRecipientInclude<ExtArgs> | null
+    where?: BroadcastRecipientWhereInput
+    orderBy?: BroadcastRecipientOrderByWithRelationInput | BroadcastRecipientOrderByWithRelationInput[]
+    cursor?: BroadcastRecipientWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: BroadcastRecipientScalarFieldEnum | BroadcastRecipientScalarFieldEnum[]
+  }
+
+  /**
+   * BroadcastCampaign without action
+   */
+  export type BroadcastCampaignDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BroadcastCampaign
+     */
+    select?: BroadcastCampaignSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BroadcastCampaign
+     */
+    omit?: BroadcastCampaignOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BroadcastCampaignInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model BroadcastRecipient
+   */
+
+  export type AggregateBroadcastRecipient = {
+    _count: BroadcastRecipientCountAggregateOutputType | null
+    _avg: BroadcastRecipientAvgAggregateOutputType | null
+    _sum: BroadcastRecipientSumAggregateOutputType | null
+    _min: BroadcastRecipientMinAggregateOutputType | null
+    _max: BroadcastRecipientMaxAggregateOutputType | null
+  }
+
+  export type BroadcastRecipientAvgAggregateOutputType = {
+    openCount: number | null
+    clickCount: number | null
+  }
+
+  export type BroadcastRecipientSumAggregateOutputType = {
+    openCount: number | null
+    clickCount: number | null
+  }
+
+  export type BroadcastRecipientMinAggregateOutputType = {
+    id: string | null
+    campaignId: string | null
+    email: string | null
+    contactName: string | null
+    companyName: string | null
+    status: string | null
+    errorMessage: string | null
+    trackingToken: string | null
+    openedAt: Date | null
+    lastOpenedAt: Date | null
+    openCount: number | null
+    clickedAt: Date | null
+    lastClickedAt: Date | null
+    clickCount: number | null
+    lastClickedUrl: string | null
+    createdAt: Date | null
+  }
+
+  export type BroadcastRecipientMaxAggregateOutputType = {
+    id: string | null
+    campaignId: string | null
+    email: string | null
+    contactName: string | null
+    companyName: string | null
+    status: string | null
+    errorMessage: string | null
+    trackingToken: string | null
+    openedAt: Date | null
+    lastOpenedAt: Date | null
+    openCount: number | null
+    clickedAt: Date | null
+    lastClickedAt: Date | null
+    clickCount: number | null
+    lastClickedUrl: string | null
+    createdAt: Date | null
+  }
+
+  export type BroadcastRecipientCountAggregateOutputType = {
+    id: number
+    campaignId: number
+    email: number
+    contactName: number
+    companyName: number
+    status: number
+    errorMessage: number
+    trackingToken: number
+    openedAt: number
+    lastOpenedAt: number
+    openCount: number
+    clickedAt: number
+    lastClickedAt: number
+    clickCount: number
+    lastClickedUrl: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type BroadcastRecipientAvgAggregateInputType = {
+    openCount?: true
+    clickCount?: true
+  }
+
+  export type BroadcastRecipientSumAggregateInputType = {
+    openCount?: true
+    clickCount?: true
+  }
+
+  export type BroadcastRecipientMinAggregateInputType = {
+    id?: true
+    campaignId?: true
+    email?: true
+    contactName?: true
+    companyName?: true
+    status?: true
+    errorMessage?: true
+    trackingToken?: true
+    openedAt?: true
+    lastOpenedAt?: true
+    openCount?: true
+    clickedAt?: true
+    lastClickedAt?: true
+    clickCount?: true
+    lastClickedUrl?: true
+    createdAt?: true
+  }
+
+  export type BroadcastRecipientMaxAggregateInputType = {
+    id?: true
+    campaignId?: true
+    email?: true
+    contactName?: true
+    companyName?: true
+    status?: true
+    errorMessage?: true
+    trackingToken?: true
+    openedAt?: true
+    lastOpenedAt?: true
+    openCount?: true
+    clickedAt?: true
+    lastClickedAt?: true
+    clickCount?: true
+    lastClickedUrl?: true
+    createdAt?: true
+  }
+
+  export type BroadcastRecipientCountAggregateInputType = {
+    id?: true
+    campaignId?: true
+    email?: true
+    contactName?: true
+    companyName?: true
+    status?: true
+    errorMessage?: true
+    trackingToken?: true
+    openedAt?: true
+    lastOpenedAt?: true
+    openCount?: true
+    clickedAt?: true
+    lastClickedAt?: true
+    clickCount?: true
+    lastClickedUrl?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type BroadcastRecipientAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which BroadcastRecipient to aggregate.
+     */
+    where?: BroadcastRecipientWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BroadcastRecipients to fetch.
+     */
+    orderBy?: BroadcastRecipientOrderByWithRelationInput | BroadcastRecipientOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: BroadcastRecipientWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BroadcastRecipients from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BroadcastRecipients.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned BroadcastRecipients
+    **/
+    _count?: true | BroadcastRecipientCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: BroadcastRecipientAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: BroadcastRecipientSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: BroadcastRecipientMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: BroadcastRecipientMaxAggregateInputType
+  }
+
+  export type GetBroadcastRecipientAggregateType<T extends BroadcastRecipientAggregateArgs> = {
+        [P in keyof T & keyof AggregateBroadcastRecipient]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateBroadcastRecipient[P]>
+      : GetScalarType<T[P], AggregateBroadcastRecipient[P]>
+  }
+
+
+
+
+  export type BroadcastRecipientGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BroadcastRecipientWhereInput
+    orderBy?: BroadcastRecipientOrderByWithAggregationInput | BroadcastRecipientOrderByWithAggregationInput[]
+    by: BroadcastRecipientScalarFieldEnum[] | BroadcastRecipientScalarFieldEnum
+    having?: BroadcastRecipientScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: BroadcastRecipientCountAggregateInputType | true
+    _avg?: BroadcastRecipientAvgAggregateInputType
+    _sum?: BroadcastRecipientSumAggregateInputType
+    _min?: BroadcastRecipientMinAggregateInputType
+    _max?: BroadcastRecipientMaxAggregateInputType
+  }
+
+  export type BroadcastRecipientGroupByOutputType = {
+    id: string
+    campaignId: string
+    email: string
+    contactName: string
+    companyName: string
+    status: string
+    errorMessage: string | null
+    trackingToken: string
+    openedAt: Date | null
+    lastOpenedAt: Date | null
+    openCount: number
+    clickedAt: Date | null
+    lastClickedAt: Date | null
+    clickCount: number
+    lastClickedUrl: string | null
+    createdAt: Date
+    _count: BroadcastRecipientCountAggregateOutputType | null
+    _avg: BroadcastRecipientAvgAggregateOutputType | null
+    _sum: BroadcastRecipientSumAggregateOutputType | null
+    _min: BroadcastRecipientMinAggregateOutputType | null
+    _max: BroadcastRecipientMaxAggregateOutputType | null
+  }
+
+  type GetBroadcastRecipientGroupByPayload<T extends BroadcastRecipientGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<BroadcastRecipientGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof BroadcastRecipientGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], BroadcastRecipientGroupByOutputType[P]>
+            : GetScalarType<T[P], BroadcastRecipientGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type BroadcastRecipientSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    campaignId?: boolean
+    email?: boolean
+    contactName?: boolean
+    companyName?: boolean
+    status?: boolean
+    errorMessage?: boolean
+    trackingToken?: boolean
+    openedAt?: boolean
+    lastOpenedAt?: boolean
+    openCount?: boolean
+    clickedAt?: boolean
+    lastClickedAt?: boolean
+    clickCount?: boolean
+    lastClickedUrl?: boolean
+    createdAt?: boolean
+    campaign?: boolean | BroadcastCampaignDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["broadcastRecipient"]>
+
+  export type BroadcastRecipientSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    campaignId?: boolean
+    email?: boolean
+    contactName?: boolean
+    companyName?: boolean
+    status?: boolean
+    errorMessage?: boolean
+    trackingToken?: boolean
+    openedAt?: boolean
+    lastOpenedAt?: boolean
+    openCount?: boolean
+    clickedAt?: boolean
+    lastClickedAt?: boolean
+    clickCount?: boolean
+    lastClickedUrl?: boolean
+    createdAt?: boolean
+    campaign?: boolean | BroadcastCampaignDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["broadcastRecipient"]>
+
+  export type BroadcastRecipientSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    campaignId?: boolean
+    email?: boolean
+    contactName?: boolean
+    companyName?: boolean
+    status?: boolean
+    errorMessage?: boolean
+    trackingToken?: boolean
+    openedAt?: boolean
+    lastOpenedAt?: boolean
+    openCount?: boolean
+    clickedAt?: boolean
+    lastClickedAt?: boolean
+    clickCount?: boolean
+    lastClickedUrl?: boolean
+    createdAt?: boolean
+    campaign?: boolean | BroadcastCampaignDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["broadcastRecipient"]>
+
+  export type BroadcastRecipientSelectScalar = {
+    id?: boolean
+    campaignId?: boolean
+    email?: boolean
+    contactName?: boolean
+    companyName?: boolean
+    status?: boolean
+    errorMessage?: boolean
+    trackingToken?: boolean
+    openedAt?: boolean
+    lastOpenedAt?: boolean
+    openCount?: boolean
+    clickedAt?: boolean
+    lastClickedAt?: boolean
+    clickCount?: boolean
+    lastClickedUrl?: boolean
+    createdAt?: boolean
+  }
+
+  export type BroadcastRecipientOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "campaignId" | "email" | "contactName" | "companyName" | "status" | "errorMessage" | "trackingToken" | "openedAt" | "lastOpenedAt" | "openCount" | "clickedAt" | "lastClickedAt" | "clickCount" | "lastClickedUrl" | "createdAt", ExtArgs["result"]["broadcastRecipient"]>
+  export type BroadcastRecipientInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    campaign?: boolean | BroadcastCampaignDefaultArgs<ExtArgs>
+  }
+  export type BroadcastRecipientIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    campaign?: boolean | BroadcastCampaignDefaultArgs<ExtArgs>
+  }
+  export type BroadcastRecipientIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    campaign?: boolean | BroadcastCampaignDefaultArgs<ExtArgs>
+  }
+
+  export type $BroadcastRecipientPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "BroadcastRecipient"
+    objects: {
+      campaign: Prisma.$BroadcastCampaignPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      campaignId: string
+      email: string
+      contactName: string
+      companyName: string
+      status: string
+      errorMessage: string | null
+      trackingToken: string
+      openedAt: Date | null
+      lastOpenedAt: Date | null
+      openCount: number
+      clickedAt: Date | null
+      lastClickedAt: Date | null
+      clickCount: number
+      lastClickedUrl: string | null
+      createdAt: Date
+    }, ExtArgs["result"]["broadcastRecipient"]>
+    composites: {}
+  }
+
+  type BroadcastRecipientGetPayload<S extends boolean | null | undefined | BroadcastRecipientDefaultArgs> = $Result.GetResult<Prisma.$BroadcastRecipientPayload, S>
+
+  type BroadcastRecipientCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<BroadcastRecipientFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: BroadcastRecipientCountAggregateInputType | true
+    }
+
+  export interface BroadcastRecipientDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['BroadcastRecipient'], meta: { name: 'BroadcastRecipient' } }
+    /**
+     * Find zero or one BroadcastRecipient that matches the filter.
+     * @param {BroadcastRecipientFindUniqueArgs} args - Arguments to find a BroadcastRecipient
+     * @example
+     * // Get one BroadcastRecipient
+     * const broadcastRecipient = await prisma.broadcastRecipient.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends BroadcastRecipientFindUniqueArgs>(args: SelectSubset<T, BroadcastRecipientFindUniqueArgs<ExtArgs>>): Prisma__BroadcastRecipientClient<$Result.GetResult<Prisma.$BroadcastRecipientPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one BroadcastRecipient that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {BroadcastRecipientFindUniqueOrThrowArgs} args - Arguments to find a BroadcastRecipient
+     * @example
+     * // Get one BroadcastRecipient
+     * const broadcastRecipient = await prisma.broadcastRecipient.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends BroadcastRecipientFindUniqueOrThrowArgs>(args: SelectSubset<T, BroadcastRecipientFindUniqueOrThrowArgs<ExtArgs>>): Prisma__BroadcastRecipientClient<$Result.GetResult<Prisma.$BroadcastRecipientPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first BroadcastRecipient that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BroadcastRecipientFindFirstArgs} args - Arguments to find a BroadcastRecipient
+     * @example
+     * // Get one BroadcastRecipient
+     * const broadcastRecipient = await prisma.broadcastRecipient.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends BroadcastRecipientFindFirstArgs>(args?: SelectSubset<T, BroadcastRecipientFindFirstArgs<ExtArgs>>): Prisma__BroadcastRecipientClient<$Result.GetResult<Prisma.$BroadcastRecipientPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first BroadcastRecipient that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BroadcastRecipientFindFirstOrThrowArgs} args - Arguments to find a BroadcastRecipient
+     * @example
+     * // Get one BroadcastRecipient
+     * const broadcastRecipient = await prisma.broadcastRecipient.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends BroadcastRecipientFindFirstOrThrowArgs>(args?: SelectSubset<T, BroadcastRecipientFindFirstOrThrowArgs<ExtArgs>>): Prisma__BroadcastRecipientClient<$Result.GetResult<Prisma.$BroadcastRecipientPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more BroadcastRecipients that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BroadcastRecipientFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all BroadcastRecipients
+     * const broadcastRecipients = await prisma.broadcastRecipient.findMany()
+     * 
+     * // Get first 10 BroadcastRecipients
+     * const broadcastRecipients = await prisma.broadcastRecipient.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const broadcastRecipientWithIdOnly = await prisma.broadcastRecipient.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends BroadcastRecipientFindManyArgs>(args?: SelectSubset<T, BroadcastRecipientFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BroadcastRecipientPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a BroadcastRecipient.
+     * @param {BroadcastRecipientCreateArgs} args - Arguments to create a BroadcastRecipient.
+     * @example
+     * // Create one BroadcastRecipient
+     * const BroadcastRecipient = await prisma.broadcastRecipient.create({
+     *   data: {
+     *     // ... data to create a BroadcastRecipient
+     *   }
+     * })
+     * 
+     */
+    create<T extends BroadcastRecipientCreateArgs>(args: SelectSubset<T, BroadcastRecipientCreateArgs<ExtArgs>>): Prisma__BroadcastRecipientClient<$Result.GetResult<Prisma.$BroadcastRecipientPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many BroadcastRecipients.
+     * @param {BroadcastRecipientCreateManyArgs} args - Arguments to create many BroadcastRecipients.
+     * @example
+     * // Create many BroadcastRecipients
+     * const broadcastRecipient = await prisma.broadcastRecipient.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends BroadcastRecipientCreateManyArgs>(args?: SelectSubset<T, BroadcastRecipientCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many BroadcastRecipients and returns the data saved in the database.
+     * @param {BroadcastRecipientCreateManyAndReturnArgs} args - Arguments to create many BroadcastRecipients.
+     * @example
+     * // Create many BroadcastRecipients
+     * const broadcastRecipient = await prisma.broadcastRecipient.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many BroadcastRecipients and only return the `id`
+     * const broadcastRecipientWithIdOnly = await prisma.broadcastRecipient.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends BroadcastRecipientCreateManyAndReturnArgs>(args?: SelectSubset<T, BroadcastRecipientCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BroadcastRecipientPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a BroadcastRecipient.
+     * @param {BroadcastRecipientDeleteArgs} args - Arguments to delete one BroadcastRecipient.
+     * @example
+     * // Delete one BroadcastRecipient
+     * const BroadcastRecipient = await prisma.broadcastRecipient.delete({
+     *   where: {
+     *     // ... filter to delete one BroadcastRecipient
+     *   }
+     * })
+     * 
+     */
+    delete<T extends BroadcastRecipientDeleteArgs>(args: SelectSubset<T, BroadcastRecipientDeleteArgs<ExtArgs>>): Prisma__BroadcastRecipientClient<$Result.GetResult<Prisma.$BroadcastRecipientPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one BroadcastRecipient.
+     * @param {BroadcastRecipientUpdateArgs} args - Arguments to update one BroadcastRecipient.
+     * @example
+     * // Update one BroadcastRecipient
+     * const broadcastRecipient = await prisma.broadcastRecipient.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends BroadcastRecipientUpdateArgs>(args: SelectSubset<T, BroadcastRecipientUpdateArgs<ExtArgs>>): Prisma__BroadcastRecipientClient<$Result.GetResult<Prisma.$BroadcastRecipientPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more BroadcastRecipients.
+     * @param {BroadcastRecipientDeleteManyArgs} args - Arguments to filter BroadcastRecipients to delete.
+     * @example
+     * // Delete a few BroadcastRecipients
+     * const { count } = await prisma.broadcastRecipient.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends BroadcastRecipientDeleteManyArgs>(args?: SelectSubset<T, BroadcastRecipientDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more BroadcastRecipients.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BroadcastRecipientUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many BroadcastRecipients
+     * const broadcastRecipient = await prisma.broadcastRecipient.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends BroadcastRecipientUpdateManyArgs>(args: SelectSubset<T, BroadcastRecipientUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more BroadcastRecipients and returns the data updated in the database.
+     * @param {BroadcastRecipientUpdateManyAndReturnArgs} args - Arguments to update many BroadcastRecipients.
+     * @example
+     * // Update many BroadcastRecipients
+     * const broadcastRecipient = await prisma.broadcastRecipient.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more BroadcastRecipients and only return the `id`
+     * const broadcastRecipientWithIdOnly = await prisma.broadcastRecipient.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends BroadcastRecipientUpdateManyAndReturnArgs>(args: SelectSubset<T, BroadcastRecipientUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BroadcastRecipientPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one BroadcastRecipient.
+     * @param {BroadcastRecipientUpsertArgs} args - Arguments to update or create a BroadcastRecipient.
+     * @example
+     * // Update or create a BroadcastRecipient
+     * const broadcastRecipient = await prisma.broadcastRecipient.upsert({
+     *   create: {
+     *     // ... data to create a BroadcastRecipient
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the BroadcastRecipient we want to update
+     *   }
+     * })
+     */
+    upsert<T extends BroadcastRecipientUpsertArgs>(args: SelectSubset<T, BroadcastRecipientUpsertArgs<ExtArgs>>): Prisma__BroadcastRecipientClient<$Result.GetResult<Prisma.$BroadcastRecipientPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of BroadcastRecipients.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BroadcastRecipientCountArgs} args - Arguments to filter BroadcastRecipients to count.
+     * @example
+     * // Count the number of BroadcastRecipients
+     * const count = await prisma.broadcastRecipient.count({
+     *   where: {
+     *     // ... the filter for the BroadcastRecipients we want to count
+     *   }
+     * })
+    **/
+    count<T extends BroadcastRecipientCountArgs>(
+      args?: Subset<T, BroadcastRecipientCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], BroadcastRecipientCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a BroadcastRecipient.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BroadcastRecipientAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends BroadcastRecipientAggregateArgs>(args: Subset<T, BroadcastRecipientAggregateArgs>): Prisma.PrismaPromise<GetBroadcastRecipientAggregateType<T>>
+
+    /**
+     * Group by BroadcastRecipient.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BroadcastRecipientGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends BroadcastRecipientGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: BroadcastRecipientGroupByArgs['orderBy'] }
+        : { orderBy?: BroadcastRecipientGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, BroadcastRecipientGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetBroadcastRecipientGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the BroadcastRecipient model
+   */
+  readonly fields: BroadcastRecipientFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for BroadcastRecipient.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__BroadcastRecipientClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    campaign<T extends BroadcastCampaignDefaultArgs<ExtArgs> = {}>(args?: Subset<T, BroadcastCampaignDefaultArgs<ExtArgs>>): Prisma__BroadcastCampaignClient<$Result.GetResult<Prisma.$BroadcastCampaignPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the BroadcastRecipient model
+   */
+  interface BroadcastRecipientFieldRefs {
+    readonly id: FieldRef<"BroadcastRecipient", 'String'>
+    readonly campaignId: FieldRef<"BroadcastRecipient", 'String'>
+    readonly email: FieldRef<"BroadcastRecipient", 'String'>
+    readonly contactName: FieldRef<"BroadcastRecipient", 'String'>
+    readonly companyName: FieldRef<"BroadcastRecipient", 'String'>
+    readonly status: FieldRef<"BroadcastRecipient", 'String'>
+    readonly errorMessage: FieldRef<"BroadcastRecipient", 'String'>
+    readonly trackingToken: FieldRef<"BroadcastRecipient", 'String'>
+    readonly openedAt: FieldRef<"BroadcastRecipient", 'DateTime'>
+    readonly lastOpenedAt: FieldRef<"BroadcastRecipient", 'DateTime'>
+    readonly openCount: FieldRef<"BroadcastRecipient", 'Int'>
+    readonly clickedAt: FieldRef<"BroadcastRecipient", 'DateTime'>
+    readonly lastClickedAt: FieldRef<"BroadcastRecipient", 'DateTime'>
+    readonly clickCount: FieldRef<"BroadcastRecipient", 'Int'>
+    readonly lastClickedUrl: FieldRef<"BroadcastRecipient", 'String'>
+    readonly createdAt: FieldRef<"BroadcastRecipient", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * BroadcastRecipient findUnique
+   */
+  export type BroadcastRecipientFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BroadcastRecipient
+     */
+    select?: BroadcastRecipientSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BroadcastRecipient
+     */
+    omit?: BroadcastRecipientOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BroadcastRecipientInclude<ExtArgs> | null
+    /**
+     * Filter, which BroadcastRecipient to fetch.
+     */
+    where: BroadcastRecipientWhereUniqueInput
+  }
+
+  /**
+   * BroadcastRecipient findUniqueOrThrow
+   */
+  export type BroadcastRecipientFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BroadcastRecipient
+     */
+    select?: BroadcastRecipientSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BroadcastRecipient
+     */
+    omit?: BroadcastRecipientOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BroadcastRecipientInclude<ExtArgs> | null
+    /**
+     * Filter, which BroadcastRecipient to fetch.
+     */
+    where: BroadcastRecipientWhereUniqueInput
+  }
+
+  /**
+   * BroadcastRecipient findFirst
+   */
+  export type BroadcastRecipientFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BroadcastRecipient
+     */
+    select?: BroadcastRecipientSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BroadcastRecipient
+     */
+    omit?: BroadcastRecipientOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BroadcastRecipientInclude<ExtArgs> | null
+    /**
+     * Filter, which BroadcastRecipient to fetch.
+     */
+    where?: BroadcastRecipientWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BroadcastRecipients to fetch.
+     */
+    orderBy?: BroadcastRecipientOrderByWithRelationInput | BroadcastRecipientOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for BroadcastRecipients.
+     */
+    cursor?: BroadcastRecipientWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BroadcastRecipients from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BroadcastRecipients.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of BroadcastRecipients.
+     */
+    distinct?: BroadcastRecipientScalarFieldEnum | BroadcastRecipientScalarFieldEnum[]
+  }
+
+  /**
+   * BroadcastRecipient findFirstOrThrow
+   */
+  export type BroadcastRecipientFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BroadcastRecipient
+     */
+    select?: BroadcastRecipientSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BroadcastRecipient
+     */
+    omit?: BroadcastRecipientOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BroadcastRecipientInclude<ExtArgs> | null
+    /**
+     * Filter, which BroadcastRecipient to fetch.
+     */
+    where?: BroadcastRecipientWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BroadcastRecipients to fetch.
+     */
+    orderBy?: BroadcastRecipientOrderByWithRelationInput | BroadcastRecipientOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for BroadcastRecipients.
+     */
+    cursor?: BroadcastRecipientWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BroadcastRecipients from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BroadcastRecipients.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of BroadcastRecipients.
+     */
+    distinct?: BroadcastRecipientScalarFieldEnum | BroadcastRecipientScalarFieldEnum[]
+  }
+
+  /**
+   * BroadcastRecipient findMany
+   */
+  export type BroadcastRecipientFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BroadcastRecipient
+     */
+    select?: BroadcastRecipientSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BroadcastRecipient
+     */
+    omit?: BroadcastRecipientOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BroadcastRecipientInclude<ExtArgs> | null
+    /**
+     * Filter, which BroadcastRecipients to fetch.
+     */
+    where?: BroadcastRecipientWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BroadcastRecipients to fetch.
+     */
+    orderBy?: BroadcastRecipientOrderByWithRelationInput | BroadcastRecipientOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing BroadcastRecipients.
+     */
+    cursor?: BroadcastRecipientWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BroadcastRecipients from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BroadcastRecipients.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of BroadcastRecipients.
+     */
+    distinct?: BroadcastRecipientScalarFieldEnum | BroadcastRecipientScalarFieldEnum[]
+  }
+
+  /**
+   * BroadcastRecipient create
+   */
+  export type BroadcastRecipientCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BroadcastRecipient
+     */
+    select?: BroadcastRecipientSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BroadcastRecipient
+     */
+    omit?: BroadcastRecipientOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BroadcastRecipientInclude<ExtArgs> | null
+    /**
+     * The data needed to create a BroadcastRecipient.
+     */
+    data: XOR<BroadcastRecipientCreateInput, BroadcastRecipientUncheckedCreateInput>
+  }
+
+  /**
+   * BroadcastRecipient createMany
+   */
+  export type BroadcastRecipientCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many BroadcastRecipients.
+     */
+    data: BroadcastRecipientCreateManyInput | BroadcastRecipientCreateManyInput[]
+  }
+
+  /**
+   * BroadcastRecipient createManyAndReturn
+   */
+  export type BroadcastRecipientCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BroadcastRecipient
+     */
+    select?: BroadcastRecipientSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the BroadcastRecipient
+     */
+    omit?: BroadcastRecipientOmit<ExtArgs> | null
+    /**
+     * The data used to create many BroadcastRecipients.
+     */
+    data: BroadcastRecipientCreateManyInput | BroadcastRecipientCreateManyInput[]
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BroadcastRecipientIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * BroadcastRecipient update
+   */
+  export type BroadcastRecipientUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BroadcastRecipient
+     */
+    select?: BroadcastRecipientSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BroadcastRecipient
+     */
+    omit?: BroadcastRecipientOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BroadcastRecipientInclude<ExtArgs> | null
+    /**
+     * The data needed to update a BroadcastRecipient.
+     */
+    data: XOR<BroadcastRecipientUpdateInput, BroadcastRecipientUncheckedUpdateInput>
+    /**
+     * Choose, which BroadcastRecipient to update.
+     */
+    where: BroadcastRecipientWhereUniqueInput
+  }
+
+  /**
+   * BroadcastRecipient updateMany
+   */
+  export type BroadcastRecipientUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update BroadcastRecipients.
+     */
+    data: XOR<BroadcastRecipientUpdateManyMutationInput, BroadcastRecipientUncheckedUpdateManyInput>
+    /**
+     * Filter which BroadcastRecipients to update
+     */
+    where?: BroadcastRecipientWhereInput
+    /**
+     * Limit how many BroadcastRecipients to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * BroadcastRecipient updateManyAndReturn
+   */
+  export type BroadcastRecipientUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BroadcastRecipient
+     */
+    select?: BroadcastRecipientSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the BroadcastRecipient
+     */
+    omit?: BroadcastRecipientOmit<ExtArgs> | null
+    /**
+     * The data used to update BroadcastRecipients.
+     */
+    data: XOR<BroadcastRecipientUpdateManyMutationInput, BroadcastRecipientUncheckedUpdateManyInput>
+    /**
+     * Filter which BroadcastRecipients to update
+     */
+    where?: BroadcastRecipientWhereInput
+    /**
+     * Limit how many BroadcastRecipients to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BroadcastRecipientIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * BroadcastRecipient upsert
+   */
+  export type BroadcastRecipientUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BroadcastRecipient
+     */
+    select?: BroadcastRecipientSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BroadcastRecipient
+     */
+    omit?: BroadcastRecipientOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BroadcastRecipientInclude<ExtArgs> | null
+    /**
+     * The filter to search for the BroadcastRecipient to update in case it exists.
+     */
+    where: BroadcastRecipientWhereUniqueInput
+    /**
+     * In case the BroadcastRecipient found by the `where` argument doesn't exist, create a new BroadcastRecipient with this data.
+     */
+    create: XOR<BroadcastRecipientCreateInput, BroadcastRecipientUncheckedCreateInput>
+    /**
+     * In case the BroadcastRecipient was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<BroadcastRecipientUpdateInput, BroadcastRecipientUncheckedUpdateInput>
+  }
+
+  /**
+   * BroadcastRecipient delete
+   */
+  export type BroadcastRecipientDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BroadcastRecipient
+     */
+    select?: BroadcastRecipientSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BroadcastRecipient
+     */
+    omit?: BroadcastRecipientOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BroadcastRecipientInclude<ExtArgs> | null
+    /**
+     * Filter which BroadcastRecipient to delete.
+     */
+    where: BroadcastRecipientWhereUniqueInput
+  }
+
+  /**
+   * BroadcastRecipient deleteMany
+   */
+  export type BroadcastRecipientDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which BroadcastRecipients to delete
+     */
+    where?: BroadcastRecipientWhereInput
+    /**
+     * Limit how many BroadcastRecipients to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * BroadcastRecipient without action
+   */
+  export type BroadcastRecipientDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BroadcastRecipient
+     */
+    select?: BroadcastRecipientSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BroadcastRecipient
+     */
+    omit?: BroadcastRecipientOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BroadcastRecipientInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -15568,6 +18352,50 @@ export namespace Prisma {
   export type EmailTemplateScalarFieldEnum = (typeof EmailTemplateScalarFieldEnum)[keyof typeof EmailTemplateScalarFieldEnum]
 
 
+  export const BroadcastCampaignScalarFieldEnum: {
+    id: 'id',
+    subject: 'subject',
+    tagName: 'tagName',
+    templateId: 'templateId',
+    senderId: 'senderId',
+    totalRecipients: 'totalRecipients',
+    successCount: 'successCount',
+    failedCount: 'failedCount',
+    openCount: 'openCount',
+    uniqueOpenCount: 'uniqueOpenCount',
+    clickCount: 'clickCount',
+    uniqueClickCount: 'uniqueClickCount',
+    status: 'status',
+    contentSnapshot: 'contentSnapshot',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type BroadcastCampaignScalarFieldEnum = (typeof BroadcastCampaignScalarFieldEnum)[keyof typeof BroadcastCampaignScalarFieldEnum]
+
+
+  export const BroadcastRecipientScalarFieldEnum: {
+    id: 'id',
+    campaignId: 'campaignId',
+    email: 'email',
+    contactName: 'contactName',
+    companyName: 'companyName',
+    status: 'status',
+    errorMessage: 'errorMessage',
+    trackingToken: 'trackingToken',
+    openedAt: 'openedAt',
+    lastOpenedAt: 'lastOpenedAt',
+    openCount: 'openCount',
+    clickedAt: 'clickedAt',
+    lastClickedAt: 'lastClickedAt',
+    clickCount: 'clickCount',
+    lastClickedUrl: 'lastClickedUrl',
+    createdAt: 'createdAt'
+  };
+
+  export type BroadcastRecipientScalarFieldEnum = (typeof BroadcastRecipientScalarFieldEnum)[keyof typeof BroadcastRecipientScalarFieldEnum]
+
+
   export const SortOrder: {
     asc: 'asc',
     desc: 'desc'
@@ -15649,6 +18477,7 @@ export namespace Prisma {
     activities?: ActivityListRelationFilter
     opportunities?: OpportunityListRelationFilter
     createdContacts?: ContactListRelationFilter
+    broadcastCampaigns?: BroadcastCampaignListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -15670,6 +18499,7 @@ export namespace Prisma {
     activities?: ActivityOrderByRelationAggregateInput
     opportunities?: OpportunityOrderByRelationAggregateInput
     createdContacts?: ContactOrderByRelationAggregateInput
+    broadcastCampaigns?: BroadcastCampaignOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -15694,6 +18524,7 @@ export namespace Prisma {
     activities?: ActivityListRelationFilter
     opportunities?: OpportunityListRelationFilter
     createdContacts?: ContactListRelationFilter
+    broadcastCampaigns?: BroadcastCampaignListRelationFilter
   }, "id" | "email" | "employeeId">
 
   export type UserOrderByWithAggregationInput = {
@@ -16543,6 +19374,233 @@ export namespace Prisma {
     updatedAt?: DateTimeWithAggregatesFilter<"EmailTemplate"> | Date | string
   }
 
+  export type BroadcastCampaignWhereInput = {
+    AND?: BroadcastCampaignWhereInput | BroadcastCampaignWhereInput[]
+    OR?: BroadcastCampaignWhereInput[]
+    NOT?: BroadcastCampaignWhereInput | BroadcastCampaignWhereInput[]
+    id?: StringFilter<"BroadcastCampaign"> | string
+    subject?: StringFilter<"BroadcastCampaign"> | string
+    tagName?: StringFilter<"BroadcastCampaign"> | string
+    templateId?: StringNullableFilter<"BroadcastCampaign"> | string | null
+    senderId?: StringFilter<"BroadcastCampaign"> | string
+    totalRecipients?: IntFilter<"BroadcastCampaign"> | number
+    successCount?: IntFilter<"BroadcastCampaign"> | number
+    failedCount?: IntFilter<"BroadcastCampaign"> | number
+    openCount?: IntFilter<"BroadcastCampaign"> | number
+    uniqueOpenCount?: IntFilter<"BroadcastCampaign"> | number
+    clickCount?: IntFilter<"BroadcastCampaign"> | number
+    uniqueClickCount?: IntFilter<"BroadcastCampaign"> | number
+    status?: StringFilter<"BroadcastCampaign"> | string
+    contentSnapshot?: StringNullableFilter<"BroadcastCampaign"> | string | null
+    createdAt?: DateTimeFilter<"BroadcastCampaign"> | Date | string
+    updatedAt?: DateTimeFilter<"BroadcastCampaign"> | Date | string
+    sender?: XOR<UserScalarRelationFilter, UserWhereInput>
+    recipients?: BroadcastRecipientListRelationFilter
+  }
+
+  export type BroadcastCampaignOrderByWithRelationInput = {
+    id?: SortOrder
+    subject?: SortOrder
+    tagName?: SortOrder
+    templateId?: SortOrderInput | SortOrder
+    senderId?: SortOrder
+    totalRecipients?: SortOrder
+    successCount?: SortOrder
+    failedCount?: SortOrder
+    openCount?: SortOrder
+    uniqueOpenCount?: SortOrder
+    clickCount?: SortOrder
+    uniqueClickCount?: SortOrder
+    status?: SortOrder
+    contentSnapshot?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    sender?: UserOrderByWithRelationInput
+    recipients?: BroadcastRecipientOrderByRelationAggregateInput
+  }
+
+  export type BroadcastCampaignWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: BroadcastCampaignWhereInput | BroadcastCampaignWhereInput[]
+    OR?: BroadcastCampaignWhereInput[]
+    NOT?: BroadcastCampaignWhereInput | BroadcastCampaignWhereInput[]
+    subject?: StringFilter<"BroadcastCampaign"> | string
+    tagName?: StringFilter<"BroadcastCampaign"> | string
+    templateId?: StringNullableFilter<"BroadcastCampaign"> | string | null
+    senderId?: StringFilter<"BroadcastCampaign"> | string
+    totalRecipients?: IntFilter<"BroadcastCampaign"> | number
+    successCount?: IntFilter<"BroadcastCampaign"> | number
+    failedCount?: IntFilter<"BroadcastCampaign"> | number
+    openCount?: IntFilter<"BroadcastCampaign"> | number
+    uniqueOpenCount?: IntFilter<"BroadcastCampaign"> | number
+    clickCount?: IntFilter<"BroadcastCampaign"> | number
+    uniqueClickCount?: IntFilter<"BroadcastCampaign"> | number
+    status?: StringFilter<"BroadcastCampaign"> | string
+    contentSnapshot?: StringNullableFilter<"BroadcastCampaign"> | string | null
+    createdAt?: DateTimeFilter<"BroadcastCampaign"> | Date | string
+    updatedAt?: DateTimeFilter<"BroadcastCampaign"> | Date | string
+    sender?: XOR<UserScalarRelationFilter, UserWhereInput>
+    recipients?: BroadcastRecipientListRelationFilter
+  }, "id">
+
+  export type BroadcastCampaignOrderByWithAggregationInput = {
+    id?: SortOrder
+    subject?: SortOrder
+    tagName?: SortOrder
+    templateId?: SortOrderInput | SortOrder
+    senderId?: SortOrder
+    totalRecipients?: SortOrder
+    successCount?: SortOrder
+    failedCount?: SortOrder
+    openCount?: SortOrder
+    uniqueOpenCount?: SortOrder
+    clickCount?: SortOrder
+    uniqueClickCount?: SortOrder
+    status?: SortOrder
+    contentSnapshot?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: BroadcastCampaignCountOrderByAggregateInput
+    _avg?: BroadcastCampaignAvgOrderByAggregateInput
+    _max?: BroadcastCampaignMaxOrderByAggregateInput
+    _min?: BroadcastCampaignMinOrderByAggregateInput
+    _sum?: BroadcastCampaignSumOrderByAggregateInput
+  }
+
+  export type BroadcastCampaignScalarWhereWithAggregatesInput = {
+    AND?: BroadcastCampaignScalarWhereWithAggregatesInput | BroadcastCampaignScalarWhereWithAggregatesInput[]
+    OR?: BroadcastCampaignScalarWhereWithAggregatesInput[]
+    NOT?: BroadcastCampaignScalarWhereWithAggregatesInput | BroadcastCampaignScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"BroadcastCampaign"> | string
+    subject?: StringWithAggregatesFilter<"BroadcastCampaign"> | string
+    tagName?: StringWithAggregatesFilter<"BroadcastCampaign"> | string
+    templateId?: StringNullableWithAggregatesFilter<"BroadcastCampaign"> | string | null
+    senderId?: StringWithAggregatesFilter<"BroadcastCampaign"> | string
+    totalRecipients?: IntWithAggregatesFilter<"BroadcastCampaign"> | number
+    successCount?: IntWithAggregatesFilter<"BroadcastCampaign"> | number
+    failedCount?: IntWithAggregatesFilter<"BroadcastCampaign"> | number
+    openCount?: IntWithAggregatesFilter<"BroadcastCampaign"> | number
+    uniqueOpenCount?: IntWithAggregatesFilter<"BroadcastCampaign"> | number
+    clickCount?: IntWithAggregatesFilter<"BroadcastCampaign"> | number
+    uniqueClickCount?: IntWithAggregatesFilter<"BroadcastCampaign"> | number
+    status?: StringWithAggregatesFilter<"BroadcastCampaign"> | string
+    contentSnapshot?: StringNullableWithAggregatesFilter<"BroadcastCampaign"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"BroadcastCampaign"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"BroadcastCampaign"> | Date | string
+  }
+
+  export type BroadcastRecipientWhereInput = {
+    AND?: BroadcastRecipientWhereInput | BroadcastRecipientWhereInput[]
+    OR?: BroadcastRecipientWhereInput[]
+    NOT?: BroadcastRecipientWhereInput | BroadcastRecipientWhereInput[]
+    id?: StringFilter<"BroadcastRecipient"> | string
+    campaignId?: StringFilter<"BroadcastRecipient"> | string
+    email?: StringFilter<"BroadcastRecipient"> | string
+    contactName?: StringFilter<"BroadcastRecipient"> | string
+    companyName?: StringFilter<"BroadcastRecipient"> | string
+    status?: StringFilter<"BroadcastRecipient"> | string
+    errorMessage?: StringNullableFilter<"BroadcastRecipient"> | string | null
+    trackingToken?: StringFilter<"BroadcastRecipient"> | string
+    openedAt?: DateTimeNullableFilter<"BroadcastRecipient"> | Date | string | null
+    lastOpenedAt?: DateTimeNullableFilter<"BroadcastRecipient"> | Date | string | null
+    openCount?: IntFilter<"BroadcastRecipient"> | number
+    clickedAt?: DateTimeNullableFilter<"BroadcastRecipient"> | Date | string | null
+    lastClickedAt?: DateTimeNullableFilter<"BroadcastRecipient"> | Date | string | null
+    clickCount?: IntFilter<"BroadcastRecipient"> | number
+    lastClickedUrl?: StringNullableFilter<"BroadcastRecipient"> | string | null
+    createdAt?: DateTimeFilter<"BroadcastRecipient"> | Date | string
+    campaign?: XOR<BroadcastCampaignScalarRelationFilter, BroadcastCampaignWhereInput>
+  }
+
+  export type BroadcastRecipientOrderByWithRelationInput = {
+    id?: SortOrder
+    campaignId?: SortOrder
+    email?: SortOrder
+    contactName?: SortOrder
+    companyName?: SortOrder
+    status?: SortOrder
+    errorMessage?: SortOrderInput | SortOrder
+    trackingToken?: SortOrder
+    openedAt?: SortOrderInput | SortOrder
+    lastOpenedAt?: SortOrderInput | SortOrder
+    openCount?: SortOrder
+    clickedAt?: SortOrderInput | SortOrder
+    lastClickedAt?: SortOrderInput | SortOrder
+    clickCount?: SortOrder
+    lastClickedUrl?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    campaign?: BroadcastCampaignOrderByWithRelationInput
+  }
+
+  export type BroadcastRecipientWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    trackingToken?: string
+    AND?: BroadcastRecipientWhereInput | BroadcastRecipientWhereInput[]
+    OR?: BroadcastRecipientWhereInput[]
+    NOT?: BroadcastRecipientWhereInput | BroadcastRecipientWhereInput[]
+    campaignId?: StringFilter<"BroadcastRecipient"> | string
+    email?: StringFilter<"BroadcastRecipient"> | string
+    contactName?: StringFilter<"BroadcastRecipient"> | string
+    companyName?: StringFilter<"BroadcastRecipient"> | string
+    status?: StringFilter<"BroadcastRecipient"> | string
+    errorMessage?: StringNullableFilter<"BroadcastRecipient"> | string | null
+    openedAt?: DateTimeNullableFilter<"BroadcastRecipient"> | Date | string | null
+    lastOpenedAt?: DateTimeNullableFilter<"BroadcastRecipient"> | Date | string | null
+    openCount?: IntFilter<"BroadcastRecipient"> | number
+    clickedAt?: DateTimeNullableFilter<"BroadcastRecipient"> | Date | string | null
+    lastClickedAt?: DateTimeNullableFilter<"BroadcastRecipient"> | Date | string | null
+    clickCount?: IntFilter<"BroadcastRecipient"> | number
+    lastClickedUrl?: StringNullableFilter<"BroadcastRecipient"> | string | null
+    createdAt?: DateTimeFilter<"BroadcastRecipient"> | Date | string
+    campaign?: XOR<BroadcastCampaignScalarRelationFilter, BroadcastCampaignWhereInput>
+  }, "id" | "trackingToken">
+
+  export type BroadcastRecipientOrderByWithAggregationInput = {
+    id?: SortOrder
+    campaignId?: SortOrder
+    email?: SortOrder
+    contactName?: SortOrder
+    companyName?: SortOrder
+    status?: SortOrder
+    errorMessage?: SortOrderInput | SortOrder
+    trackingToken?: SortOrder
+    openedAt?: SortOrderInput | SortOrder
+    lastOpenedAt?: SortOrderInput | SortOrder
+    openCount?: SortOrder
+    clickedAt?: SortOrderInput | SortOrder
+    lastClickedAt?: SortOrderInput | SortOrder
+    clickCount?: SortOrder
+    lastClickedUrl?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    _count?: BroadcastRecipientCountOrderByAggregateInput
+    _avg?: BroadcastRecipientAvgOrderByAggregateInput
+    _max?: BroadcastRecipientMaxOrderByAggregateInput
+    _min?: BroadcastRecipientMinOrderByAggregateInput
+    _sum?: BroadcastRecipientSumOrderByAggregateInput
+  }
+
+  export type BroadcastRecipientScalarWhereWithAggregatesInput = {
+    AND?: BroadcastRecipientScalarWhereWithAggregatesInput | BroadcastRecipientScalarWhereWithAggregatesInput[]
+    OR?: BroadcastRecipientScalarWhereWithAggregatesInput[]
+    NOT?: BroadcastRecipientScalarWhereWithAggregatesInput | BroadcastRecipientScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"BroadcastRecipient"> | string
+    campaignId?: StringWithAggregatesFilter<"BroadcastRecipient"> | string
+    email?: StringWithAggregatesFilter<"BroadcastRecipient"> | string
+    contactName?: StringWithAggregatesFilter<"BroadcastRecipient"> | string
+    companyName?: StringWithAggregatesFilter<"BroadcastRecipient"> | string
+    status?: StringWithAggregatesFilter<"BroadcastRecipient"> | string
+    errorMessage?: StringNullableWithAggregatesFilter<"BroadcastRecipient"> | string | null
+    trackingToken?: StringWithAggregatesFilter<"BroadcastRecipient"> | string
+    openedAt?: DateTimeNullableWithAggregatesFilter<"BroadcastRecipient"> | Date | string | null
+    lastOpenedAt?: DateTimeNullableWithAggregatesFilter<"BroadcastRecipient"> | Date | string | null
+    openCount?: IntWithAggregatesFilter<"BroadcastRecipient"> | number
+    clickedAt?: DateTimeNullableWithAggregatesFilter<"BroadcastRecipient"> | Date | string | null
+    lastClickedAt?: DateTimeNullableWithAggregatesFilter<"BroadcastRecipient"> | Date | string | null
+    clickCount?: IntWithAggregatesFilter<"BroadcastRecipient"> | number
+    lastClickedUrl?: StringNullableWithAggregatesFilter<"BroadcastRecipient"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"BroadcastRecipient"> | Date | string
+  }
+
   export type UserCreateInput = {
     id?: string
     name: string
@@ -16562,6 +19620,7 @@ export namespace Prisma {
     activities?: ActivityCreateNestedManyWithoutOwnerInput
     opportunities?: OpportunityCreateNestedManyWithoutOwnerInput
     createdContacts?: ContactCreateNestedManyWithoutCreatedByInput
+    broadcastCampaigns?: BroadcastCampaignCreateNestedManyWithoutSenderInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -16583,6 +19642,7 @@ export namespace Prisma {
     activities?: ActivityUncheckedCreateNestedManyWithoutOwnerInput
     opportunities?: OpportunityUncheckedCreateNestedManyWithoutOwnerInput
     createdContacts?: ContactUncheckedCreateNestedManyWithoutCreatedByInput
+    broadcastCampaigns?: BroadcastCampaignUncheckedCreateNestedManyWithoutSenderInput
   }
 
   export type UserUpdateInput = {
@@ -16604,6 +19664,7 @@ export namespace Prisma {
     activities?: ActivityUpdateManyWithoutOwnerNestedInput
     opportunities?: OpportunityUpdateManyWithoutOwnerNestedInput
     createdContacts?: ContactUpdateManyWithoutCreatedByNestedInput
+    broadcastCampaigns?: BroadcastCampaignUpdateManyWithoutSenderNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -16625,6 +19686,7 @@ export namespace Prisma {
     activities?: ActivityUncheckedUpdateManyWithoutOwnerNestedInput
     opportunities?: OpportunityUncheckedUpdateManyWithoutOwnerNestedInput
     createdContacts?: ContactUncheckedUpdateManyWithoutCreatedByNestedInput
+    broadcastCampaigns?: BroadcastCampaignUncheckedUpdateManyWithoutSenderNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -17585,6 +20647,274 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type BroadcastCampaignCreateInput = {
+    id?: string
+    subject: string
+    tagName: string
+    templateId?: string | null
+    totalRecipients?: number
+    successCount?: number
+    failedCount?: number
+    openCount?: number
+    uniqueOpenCount?: number
+    clickCount?: number
+    uniqueClickCount?: number
+    status?: string
+    contentSnapshot?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    sender: UserCreateNestedOneWithoutBroadcastCampaignsInput
+    recipients?: BroadcastRecipientCreateNestedManyWithoutCampaignInput
+  }
+
+  export type BroadcastCampaignUncheckedCreateInput = {
+    id?: string
+    subject: string
+    tagName: string
+    templateId?: string | null
+    senderId: string
+    totalRecipients?: number
+    successCount?: number
+    failedCount?: number
+    openCount?: number
+    uniqueOpenCount?: number
+    clickCount?: number
+    uniqueClickCount?: number
+    status?: string
+    contentSnapshot?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    recipients?: BroadcastRecipientUncheckedCreateNestedManyWithoutCampaignInput
+  }
+
+  export type BroadcastCampaignUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    subject?: StringFieldUpdateOperationsInput | string
+    tagName?: StringFieldUpdateOperationsInput | string
+    templateId?: NullableStringFieldUpdateOperationsInput | string | null
+    totalRecipients?: IntFieldUpdateOperationsInput | number
+    successCount?: IntFieldUpdateOperationsInput | number
+    failedCount?: IntFieldUpdateOperationsInput | number
+    openCount?: IntFieldUpdateOperationsInput | number
+    uniqueOpenCount?: IntFieldUpdateOperationsInput | number
+    clickCount?: IntFieldUpdateOperationsInput | number
+    uniqueClickCount?: IntFieldUpdateOperationsInput | number
+    status?: StringFieldUpdateOperationsInput | string
+    contentSnapshot?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sender?: UserUpdateOneRequiredWithoutBroadcastCampaignsNestedInput
+    recipients?: BroadcastRecipientUpdateManyWithoutCampaignNestedInput
+  }
+
+  export type BroadcastCampaignUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    subject?: StringFieldUpdateOperationsInput | string
+    tagName?: StringFieldUpdateOperationsInput | string
+    templateId?: NullableStringFieldUpdateOperationsInput | string | null
+    senderId?: StringFieldUpdateOperationsInput | string
+    totalRecipients?: IntFieldUpdateOperationsInput | number
+    successCount?: IntFieldUpdateOperationsInput | number
+    failedCount?: IntFieldUpdateOperationsInput | number
+    openCount?: IntFieldUpdateOperationsInput | number
+    uniqueOpenCount?: IntFieldUpdateOperationsInput | number
+    clickCount?: IntFieldUpdateOperationsInput | number
+    uniqueClickCount?: IntFieldUpdateOperationsInput | number
+    status?: StringFieldUpdateOperationsInput | string
+    contentSnapshot?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    recipients?: BroadcastRecipientUncheckedUpdateManyWithoutCampaignNestedInput
+  }
+
+  export type BroadcastCampaignCreateManyInput = {
+    id?: string
+    subject: string
+    tagName: string
+    templateId?: string | null
+    senderId: string
+    totalRecipients?: number
+    successCount?: number
+    failedCount?: number
+    openCount?: number
+    uniqueOpenCount?: number
+    clickCount?: number
+    uniqueClickCount?: number
+    status?: string
+    contentSnapshot?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type BroadcastCampaignUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    subject?: StringFieldUpdateOperationsInput | string
+    tagName?: StringFieldUpdateOperationsInput | string
+    templateId?: NullableStringFieldUpdateOperationsInput | string | null
+    totalRecipients?: IntFieldUpdateOperationsInput | number
+    successCount?: IntFieldUpdateOperationsInput | number
+    failedCount?: IntFieldUpdateOperationsInput | number
+    openCount?: IntFieldUpdateOperationsInput | number
+    uniqueOpenCount?: IntFieldUpdateOperationsInput | number
+    clickCount?: IntFieldUpdateOperationsInput | number
+    uniqueClickCount?: IntFieldUpdateOperationsInput | number
+    status?: StringFieldUpdateOperationsInput | string
+    contentSnapshot?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BroadcastCampaignUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    subject?: StringFieldUpdateOperationsInput | string
+    tagName?: StringFieldUpdateOperationsInput | string
+    templateId?: NullableStringFieldUpdateOperationsInput | string | null
+    senderId?: StringFieldUpdateOperationsInput | string
+    totalRecipients?: IntFieldUpdateOperationsInput | number
+    successCount?: IntFieldUpdateOperationsInput | number
+    failedCount?: IntFieldUpdateOperationsInput | number
+    openCount?: IntFieldUpdateOperationsInput | number
+    uniqueOpenCount?: IntFieldUpdateOperationsInput | number
+    clickCount?: IntFieldUpdateOperationsInput | number
+    uniqueClickCount?: IntFieldUpdateOperationsInput | number
+    status?: StringFieldUpdateOperationsInput | string
+    contentSnapshot?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BroadcastRecipientCreateInput = {
+    id?: string
+    email: string
+    contactName: string
+    companyName: string
+    status?: string
+    errorMessage?: string | null
+    trackingToken: string
+    openedAt?: Date | string | null
+    lastOpenedAt?: Date | string | null
+    openCount?: number
+    clickedAt?: Date | string | null
+    lastClickedAt?: Date | string | null
+    clickCount?: number
+    lastClickedUrl?: string | null
+    createdAt?: Date | string
+    campaign: BroadcastCampaignCreateNestedOneWithoutRecipientsInput
+  }
+
+  export type BroadcastRecipientUncheckedCreateInput = {
+    id?: string
+    campaignId: string
+    email: string
+    contactName: string
+    companyName: string
+    status?: string
+    errorMessage?: string | null
+    trackingToken: string
+    openedAt?: Date | string | null
+    lastOpenedAt?: Date | string | null
+    openCount?: number
+    clickedAt?: Date | string | null
+    lastClickedAt?: Date | string | null
+    clickCount?: number
+    lastClickedUrl?: string | null
+    createdAt?: Date | string
+  }
+
+  export type BroadcastRecipientUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    contactName?: StringFieldUpdateOperationsInput | string
+    companyName?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    errorMessage?: NullableStringFieldUpdateOperationsInput | string | null
+    trackingToken?: StringFieldUpdateOperationsInput | string
+    openedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    lastOpenedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    openCount?: IntFieldUpdateOperationsInput | number
+    clickedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    lastClickedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    clickCount?: IntFieldUpdateOperationsInput | number
+    lastClickedUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    campaign?: BroadcastCampaignUpdateOneRequiredWithoutRecipientsNestedInput
+  }
+
+  export type BroadcastRecipientUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    campaignId?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    contactName?: StringFieldUpdateOperationsInput | string
+    companyName?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    errorMessage?: NullableStringFieldUpdateOperationsInput | string | null
+    trackingToken?: StringFieldUpdateOperationsInput | string
+    openedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    lastOpenedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    openCount?: IntFieldUpdateOperationsInput | number
+    clickedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    lastClickedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    clickCount?: IntFieldUpdateOperationsInput | number
+    lastClickedUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BroadcastRecipientCreateManyInput = {
+    id?: string
+    campaignId: string
+    email: string
+    contactName: string
+    companyName: string
+    status?: string
+    errorMessage?: string | null
+    trackingToken: string
+    openedAt?: Date | string | null
+    lastOpenedAt?: Date | string | null
+    openCount?: number
+    clickedAt?: Date | string | null
+    lastClickedAt?: Date | string | null
+    clickCount?: number
+    lastClickedUrl?: string | null
+    createdAt?: Date | string
+  }
+
+  export type BroadcastRecipientUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    contactName?: StringFieldUpdateOperationsInput | string
+    companyName?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    errorMessage?: NullableStringFieldUpdateOperationsInput | string | null
+    trackingToken?: StringFieldUpdateOperationsInput | string
+    openedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    lastOpenedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    openCount?: IntFieldUpdateOperationsInput | number
+    clickedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    lastClickedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    clickCount?: IntFieldUpdateOperationsInput | number
+    lastClickedUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BroadcastRecipientUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    campaignId?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    contactName?: StringFieldUpdateOperationsInput | string
+    companyName?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    errorMessage?: NullableStringFieldUpdateOperationsInput | string | null
+    trackingToken?: StringFieldUpdateOperationsInput | string
+    openedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    lastOpenedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    openCount?: IntFieldUpdateOperationsInput | number
+    clickedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    lastClickedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    clickCount?: IntFieldUpdateOperationsInput | number
+    lastClickedUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[]
@@ -17653,6 +20983,12 @@ export namespace Prisma {
     none?: ContactWhereInput
   }
 
+  export type BroadcastCampaignListRelationFilter = {
+    every?: BroadcastCampaignWhereInput
+    some?: BroadcastCampaignWhereInput
+    none?: BroadcastCampaignWhereInput
+  }
+
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
@@ -17671,6 +21007,10 @@ export namespace Prisma {
   }
 
   export type ContactOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type BroadcastCampaignOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -18282,6 +21622,192 @@ export namespace Prisma {
     updatedAt?: SortOrder
   }
 
+  export type IntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[]
+    notIn?: number[]
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
+  }
+
+  export type BroadcastRecipientListRelationFilter = {
+    every?: BroadcastRecipientWhereInput
+    some?: BroadcastRecipientWhereInput
+    none?: BroadcastRecipientWhereInput
+  }
+
+  export type BroadcastRecipientOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type BroadcastCampaignCountOrderByAggregateInput = {
+    id?: SortOrder
+    subject?: SortOrder
+    tagName?: SortOrder
+    templateId?: SortOrder
+    senderId?: SortOrder
+    totalRecipients?: SortOrder
+    successCount?: SortOrder
+    failedCount?: SortOrder
+    openCount?: SortOrder
+    uniqueOpenCount?: SortOrder
+    clickCount?: SortOrder
+    uniqueClickCount?: SortOrder
+    status?: SortOrder
+    contentSnapshot?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type BroadcastCampaignAvgOrderByAggregateInput = {
+    totalRecipients?: SortOrder
+    successCount?: SortOrder
+    failedCount?: SortOrder
+    openCount?: SortOrder
+    uniqueOpenCount?: SortOrder
+    clickCount?: SortOrder
+    uniqueClickCount?: SortOrder
+  }
+
+  export type BroadcastCampaignMaxOrderByAggregateInput = {
+    id?: SortOrder
+    subject?: SortOrder
+    tagName?: SortOrder
+    templateId?: SortOrder
+    senderId?: SortOrder
+    totalRecipients?: SortOrder
+    successCount?: SortOrder
+    failedCount?: SortOrder
+    openCount?: SortOrder
+    uniqueOpenCount?: SortOrder
+    clickCount?: SortOrder
+    uniqueClickCount?: SortOrder
+    status?: SortOrder
+    contentSnapshot?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type BroadcastCampaignMinOrderByAggregateInput = {
+    id?: SortOrder
+    subject?: SortOrder
+    tagName?: SortOrder
+    templateId?: SortOrder
+    senderId?: SortOrder
+    totalRecipients?: SortOrder
+    successCount?: SortOrder
+    failedCount?: SortOrder
+    openCount?: SortOrder
+    uniqueOpenCount?: SortOrder
+    clickCount?: SortOrder
+    uniqueClickCount?: SortOrder
+    status?: SortOrder
+    contentSnapshot?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type BroadcastCampaignSumOrderByAggregateInput = {
+    totalRecipients?: SortOrder
+    successCount?: SortOrder
+    failedCount?: SortOrder
+    openCount?: SortOrder
+    uniqueOpenCount?: SortOrder
+    clickCount?: SortOrder
+    uniqueClickCount?: SortOrder
+  }
+
+  export type IntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[]
+    notIn?: number[]
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type BroadcastCampaignScalarRelationFilter = {
+    is?: BroadcastCampaignWhereInput
+    isNot?: BroadcastCampaignWhereInput
+  }
+
+  export type BroadcastRecipientCountOrderByAggregateInput = {
+    id?: SortOrder
+    campaignId?: SortOrder
+    email?: SortOrder
+    contactName?: SortOrder
+    companyName?: SortOrder
+    status?: SortOrder
+    errorMessage?: SortOrder
+    trackingToken?: SortOrder
+    openedAt?: SortOrder
+    lastOpenedAt?: SortOrder
+    openCount?: SortOrder
+    clickedAt?: SortOrder
+    lastClickedAt?: SortOrder
+    clickCount?: SortOrder
+    lastClickedUrl?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type BroadcastRecipientAvgOrderByAggregateInput = {
+    openCount?: SortOrder
+    clickCount?: SortOrder
+  }
+
+  export type BroadcastRecipientMaxOrderByAggregateInput = {
+    id?: SortOrder
+    campaignId?: SortOrder
+    email?: SortOrder
+    contactName?: SortOrder
+    companyName?: SortOrder
+    status?: SortOrder
+    errorMessage?: SortOrder
+    trackingToken?: SortOrder
+    openedAt?: SortOrder
+    lastOpenedAt?: SortOrder
+    openCount?: SortOrder
+    clickedAt?: SortOrder
+    lastClickedAt?: SortOrder
+    clickCount?: SortOrder
+    lastClickedUrl?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type BroadcastRecipientMinOrderByAggregateInput = {
+    id?: SortOrder
+    campaignId?: SortOrder
+    email?: SortOrder
+    contactName?: SortOrder
+    companyName?: SortOrder
+    status?: SortOrder
+    errorMessage?: SortOrder
+    trackingToken?: SortOrder
+    openedAt?: SortOrder
+    lastOpenedAt?: SortOrder
+    openCount?: SortOrder
+    clickedAt?: SortOrder
+    lastClickedAt?: SortOrder
+    clickCount?: SortOrder
+    lastClickedUrl?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type BroadcastRecipientSumOrderByAggregateInput = {
+    openCount?: SortOrder
+    clickCount?: SortOrder
+  }
+
   export type CompanyCreateNestedManyWithoutOwnerInput = {
     create?: XOR<CompanyCreateWithoutOwnerInput, CompanyUncheckedCreateWithoutOwnerInput> | CompanyCreateWithoutOwnerInput[] | CompanyUncheckedCreateWithoutOwnerInput[]
     connectOrCreate?: CompanyCreateOrConnectWithoutOwnerInput | CompanyCreateOrConnectWithoutOwnerInput[]
@@ -18310,6 +21836,13 @@ export namespace Prisma {
     connect?: ContactWhereUniqueInput | ContactWhereUniqueInput[]
   }
 
+  export type BroadcastCampaignCreateNestedManyWithoutSenderInput = {
+    create?: XOR<BroadcastCampaignCreateWithoutSenderInput, BroadcastCampaignUncheckedCreateWithoutSenderInput> | BroadcastCampaignCreateWithoutSenderInput[] | BroadcastCampaignUncheckedCreateWithoutSenderInput[]
+    connectOrCreate?: BroadcastCampaignCreateOrConnectWithoutSenderInput | BroadcastCampaignCreateOrConnectWithoutSenderInput[]
+    createMany?: BroadcastCampaignCreateManySenderInputEnvelope
+    connect?: BroadcastCampaignWhereUniqueInput | BroadcastCampaignWhereUniqueInput[]
+  }
+
   export type CompanyUncheckedCreateNestedManyWithoutOwnerInput = {
     create?: XOR<CompanyCreateWithoutOwnerInput, CompanyUncheckedCreateWithoutOwnerInput> | CompanyCreateWithoutOwnerInput[] | CompanyUncheckedCreateWithoutOwnerInput[]
     connectOrCreate?: CompanyCreateOrConnectWithoutOwnerInput | CompanyCreateOrConnectWithoutOwnerInput[]
@@ -18336,6 +21869,13 @@ export namespace Prisma {
     connectOrCreate?: ContactCreateOrConnectWithoutCreatedByInput | ContactCreateOrConnectWithoutCreatedByInput[]
     createMany?: ContactCreateManyCreatedByInputEnvelope
     connect?: ContactWhereUniqueInput | ContactWhereUniqueInput[]
+  }
+
+  export type BroadcastCampaignUncheckedCreateNestedManyWithoutSenderInput = {
+    create?: XOR<BroadcastCampaignCreateWithoutSenderInput, BroadcastCampaignUncheckedCreateWithoutSenderInput> | BroadcastCampaignCreateWithoutSenderInput[] | BroadcastCampaignUncheckedCreateWithoutSenderInput[]
+    connectOrCreate?: BroadcastCampaignCreateOrConnectWithoutSenderInput | BroadcastCampaignCreateOrConnectWithoutSenderInput[]
+    createMany?: BroadcastCampaignCreateManySenderInputEnvelope
+    connect?: BroadcastCampaignWhereUniqueInput | BroadcastCampaignWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -18410,6 +21950,20 @@ export namespace Prisma {
     deleteMany?: ContactScalarWhereInput | ContactScalarWhereInput[]
   }
 
+  export type BroadcastCampaignUpdateManyWithoutSenderNestedInput = {
+    create?: XOR<BroadcastCampaignCreateWithoutSenderInput, BroadcastCampaignUncheckedCreateWithoutSenderInput> | BroadcastCampaignCreateWithoutSenderInput[] | BroadcastCampaignUncheckedCreateWithoutSenderInput[]
+    connectOrCreate?: BroadcastCampaignCreateOrConnectWithoutSenderInput | BroadcastCampaignCreateOrConnectWithoutSenderInput[]
+    upsert?: BroadcastCampaignUpsertWithWhereUniqueWithoutSenderInput | BroadcastCampaignUpsertWithWhereUniqueWithoutSenderInput[]
+    createMany?: BroadcastCampaignCreateManySenderInputEnvelope
+    set?: BroadcastCampaignWhereUniqueInput | BroadcastCampaignWhereUniqueInput[]
+    disconnect?: BroadcastCampaignWhereUniqueInput | BroadcastCampaignWhereUniqueInput[]
+    delete?: BroadcastCampaignWhereUniqueInput | BroadcastCampaignWhereUniqueInput[]
+    connect?: BroadcastCampaignWhereUniqueInput | BroadcastCampaignWhereUniqueInput[]
+    update?: BroadcastCampaignUpdateWithWhereUniqueWithoutSenderInput | BroadcastCampaignUpdateWithWhereUniqueWithoutSenderInput[]
+    updateMany?: BroadcastCampaignUpdateManyWithWhereWithoutSenderInput | BroadcastCampaignUpdateManyWithWhereWithoutSenderInput[]
+    deleteMany?: BroadcastCampaignScalarWhereInput | BroadcastCampaignScalarWhereInput[]
+  }
+
   export type CompanyUncheckedUpdateManyWithoutOwnerNestedInput = {
     create?: XOR<CompanyCreateWithoutOwnerInput, CompanyUncheckedCreateWithoutOwnerInput> | CompanyCreateWithoutOwnerInput[] | CompanyUncheckedCreateWithoutOwnerInput[]
     connectOrCreate?: CompanyCreateOrConnectWithoutOwnerInput | CompanyCreateOrConnectWithoutOwnerInput[]
@@ -18464,6 +22018,20 @@ export namespace Prisma {
     update?: ContactUpdateWithWhereUniqueWithoutCreatedByInput | ContactUpdateWithWhereUniqueWithoutCreatedByInput[]
     updateMany?: ContactUpdateManyWithWhereWithoutCreatedByInput | ContactUpdateManyWithWhereWithoutCreatedByInput[]
     deleteMany?: ContactScalarWhereInput | ContactScalarWhereInput[]
+  }
+
+  export type BroadcastCampaignUncheckedUpdateManyWithoutSenderNestedInput = {
+    create?: XOR<BroadcastCampaignCreateWithoutSenderInput, BroadcastCampaignUncheckedCreateWithoutSenderInput> | BroadcastCampaignCreateWithoutSenderInput[] | BroadcastCampaignUncheckedCreateWithoutSenderInput[]
+    connectOrCreate?: BroadcastCampaignCreateOrConnectWithoutSenderInput | BroadcastCampaignCreateOrConnectWithoutSenderInput[]
+    upsert?: BroadcastCampaignUpsertWithWhereUniqueWithoutSenderInput | BroadcastCampaignUpsertWithWhereUniqueWithoutSenderInput[]
+    createMany?: BroadcastCampaignCreateManySenderInputEnvelope
+    set?: BroadcastCampaignWhereUniqueInput | BroadcastCampaignWhereUniqueInput[]
+    disconnect?: BroadcastCampaignWhereUniqueInput | BroadcastCampaignWhereUniqueInput[]
+    delete?: BroadcastCampaignWhereUniqueInput | BroadcastCampaignWhereUniqueInput[]
+    connect?: BroadcastCampaignWhereUniqueInput | BroadcastCampaignWhereUniqueInput[]
+    update?: BroadcastCampaignUpdateWithWhereUniqueWithoutSenderInput | BroadcastCampaignUpdateWithWhereUniqueWithoutSenderInput[]
+    updateMany?: BroadcastCampaignUpdateManyWithWhereWithoutSenderInput | BroadcastCampaignUpdateManyWithWhereWithoutSenderInput[]
+    deleteMany?: BroadcastCampaignScalarWhereInput | BroadcastCampaignScalarWhereInput[]
   }
 
   export type UserCreateNestedOneWithoutCompaniesInput = {
@@ -18808,6 +22376,84 @@ export namespace Prisma {
     deleteMany?: ContactScalarWhereInput | ContactScalarWhereInput[]
   }
 
+  export type UserCreateNestedOneWithoutBroadcastCampaignsInput = {
+    create?: XOR<UserCreateWithoutBroadcastCampaignsInput, UserUncheckedCreateWithoutBroadcastCampaignsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutBroadcastCampaignsInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type BroadcastRecipientCreateNestedManyWithoutCampaignInput = {
+    create?: XOR<BroadcastRecipientCreateWithoutCampaignInput, BroadcastRecipientUncheckedCreateWithoutCampaignInput> | BroadcastRecipientCreateWithoutCampaignInput[] | BroadcastRecipientUncheckedCreateWithoutCampaignInput[]
+    connectOrCreate?: BroadcastRecipientCreateOrConnectWithoutCampaignInput | BroadcastRecipientCreateOrConnectWithoutCampaignInput[]
+    createMany?: BroadcastRecipientCreateManyCampaignInputEnvelope
+    connect?: BroadcastRecipientWhereUniqueInput | BroadcastRecipientWhereUniqueInput[]
+  }
+
+  export type BroadcastRecipientUncheckedCreateNestedManyWithoutCampaignInput = {
+    create?: XOR<BroadcastRecipientCreateWithoutCampaignInput, BroadcastRecipientUncheckedCreateWithoutCampaignInput> | BroadcastRecipientCreateWithoutCampaignInput[] | BroadcastRecipientUncheckedCreateWithoutCampaignInput[]
+    connectOrCreate?: BroadcastRecipientCreateOrConnectWithoutCampaignInput | BroadcastRecipientCreateOrConnectWithoutCampaignInput[]
+    createMany?: BroadcastRecipientCreateManyCampaignInputEnvelope
+    connect?: BroadcastRecipientWhereUniqueInput | BroadcastRecipientWhereUniqueInput[]
+  }
+
+  export type IntFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type UserUpdateOneRequiredWithoutBroadcastCampaignsNestedInput = {
+    create?: XOR<UserCreateWithoutBroadcastCampaignsInput, UserUncheckedCreateWithoutBroadcastCampaignsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutBroadcastCampaignsInput
+    upsert?: UserUpsertWithoutBroadcastCampaignsInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutBroadcastCampaignsInput, UserUpdateWithoutBroadcastCampaignsInput>, UserUncheckedUpdateWithoutBroadcastCampaignsInput>
+  }
+
+  export type BroadcastRecipientUpdateManyWithoutCampaignNestedInput = {
+    create?: XOR<BroadcastRecipientCreateWithoutCampaignInput, BroadcastRecipientUncheckedCreateWithoutCampaignInput> | BroadcastRecipientCreateWithoutCampaignInput[] | BroadcastRecipientUncheckedCreateWithoutCampaignInput[]
+    connectOrCreate?: BroadcastRecipientCreateOrConnectWithoutCampaignInput | BroadcastRecipientCreateOrConnectWithoutCampaignInput[]
+    upsert?: BroadcastRecipientUpsertWithWhereUniqueWithoutCampaignInput | BroadcastRecipientUpsertWithWhereUniqueWithoutCampaignInput[]
+    createMany?: BroadcastRecipientCreateManyCampaignInputEnvelope
+    set?: BroadcastRecipientWhereUniqueInput | BroadcastRecipientWhereUniqueInput[]
+    disconnect?: BroadcastRecipientWhereUniqueInput | BroadcastRecipientWhereUniqueInput[]
+    delete?: BroadcastRecipientWhereUniqueInput | BroadcastRecipientWhereUniqueInput[]
+    connect?: BroadcastRecipientWhereUniqueInput | BroadcastRecipientWhereUniqueInput[]
+    update?: BroadcastRecipientUpdateWithWhereUniqueWithoutCampaignInput | BroadcastRecipientUpdateWithWhereUniqueWithoutCampaignInput[]
+    updateMany?: BroadcastRecipientUpdateManyWithWhereWithoutCampaignInput | BroadcastRecipientUpdateManyWithWhereWithoutCampaignInput[]
+    deleteMany?: BroadcastRecipientScalarWhereInput | BroadcastRecipientScalarWhereInput[]
+  }
+
+  export type BroadcastRecipientUncheckedUpdateManyWithoutCampaignNestedInput = {
+    create?: XOR<BroadcastRecipientCreateWithoutCampaignInput, BroadcastRecipientUncheckedCreateWithoutCampaignInput> | BroadcastRecipientCreateWithoutCampaignInput[] | BroadcastRecipientUncheckedCreateWithoutCampaignInput[]
+    connectOrCreate?: BroadcastRecipientCreateOrConnectWithoutCampaignInput | BroadcastRecipientCreateOrConnectWithoutCampaignInput[]
+    upsert?: BroadcastRecipientUpsertWithWhereUniqueWithoutCampaignInput | BroadcastRecipientUpsertWithWhereUniqueWithoutCampaignInput[]
+    createMany?: BroadcastRecipientCreateManyCampaignInputEnvelope
+    set?: BroadcastRecipientWhereUniqueInput | BroadcastRecipientWhereUniqueInput[]
+    disconnect?: BroadcastRecipientWhereUniqueInput | BroadcastRecipientWhereUniqueInput[]
+    delete?: BroadcastRecipientWhereUniqueInput | BroadcastRecipientWhereUniqueInput[]
+    connect?: BroadcastRecipientWhereUniqueInput | BroadcastRecipientWhereUniqueInput[]
+    update?: BroadcastRecipientUpdateWithWhereUniqueWithoutCampaignInput | BroadcastRecipientUpdateWithWhereUniqueWithoutCampaignInput[]
+    updateMany?: BroadcastRecipientUpdateManyWithWhereWithoutCampaignInput | BroadcastRecipientUpdateManyWithWhereWithoutCampaignInput[]
+    deleteMany?: BroadcastRecipientScalarWhereInput | BroadcastRecipientScalarWhereInput[]
+  }
+
+  export type BroadcastCampaignCreateNestedOneWithoutRecipientsInput = {
+    create?: XOR<BroadcastCampaignCreateWithoutRecipientsInput, BroadcastCampaignUncheckedCreateWithoutRecipientsInput>
+    connectOrCreate?: BroadcastCampaignCreateOrConnectWithoutRecipientsInput
+    connect?: BroadcastCampaignWhereUniqueInput
+  }
+
+  export type BroadcastCampaignUpdateOneRequiredWithoutRecipientsNestedInput = {
+    create?: XOR<BroadcastCampaignCreateWithoutRecipientsInput, BroadcastCampaignUncheckedCreateWithoutRecipientsInput>
+    connectOrCreate?: BroadcastCampaignCreateOrConnectWithoutRecipientsInput
+    upsert?: BroadcastCampaignUpsertWithoutRecipientsInput
+    connect?: BroadcastCampaignWhereUniqueInput
+    update?: XOR<XOR<BroadcastCampaignUpdateToOneWithWhereWithoutRecipientsInput, BroadcastCampaignUpdateWithoutRecipientsInput>, BroadcastCampaignUncheckedUpdateWithoutRecipientsInput>
+  }
+
   export type NestedStringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[]
@@ -19009,6 +22655,22 @@ export namespace Prisma {
     _max?: NestedFloatFilter<$PrismaModel>
   }
 
+  export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[]
+    notIn?: number[]
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
+  }
+
   export type CompanyCreateWithoutOwnerInput = {
     id?: string
     name: string
@@ -19161,6 +22823,53 @@ export namespace Prisma {
     data: ContactCreateManyCreatedByInput | ContactCreateManyCreatedByInput[]
   }
 
+  export type BroadcastCampaignCreateWithoutSenderInput = {
+    id?: string
+    subject: string
+    tagName: string
+    templateId?: string | null
+    totalRecipients?: number
+    successCount?: number
+    failedCount?: number
+    openCount?: number
+    uniqueOpenCount?: number
+    clickCount?: number
+    uniqueClickCount?: number
+    status?: string
+    contentSnapshot?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    recipients?: BroadcastRecipientCreateNestedManyWithoutCampaignInput
+  }
+
+  export type BroadcastCampaignUncheckedCreateWithoutSenderInput = {
+    id?: string
+    subject: string
+    tagName: string
+    templateId?: string | null
+    totalRecipients?: number
+    successCount?: number
+    failedCount?: number
+    openCount?: number
+    uniqueOpenCount?: number
+    clickCount?: number
+    uniqueClickCount?: number
+    status?: string
+    contentSnapshot?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    recipients?: BroadcastRecipientUncheckedCreateNestedManyWithoutCampaignInput
+  }
+
+  export type BroadcastCampaignCreateOrConnectWithoutSenderInput = {
+    where: BroadcastCampaignWhereUniqueInput
+    create: XOR<BroadcastCampaignCreateWithoutSenderInput, BroadcastCampaignUncheckedCreateWithoutSenderInput>
+  }
+
+  export type BroadcastCampaignCreateManySenderInputEnvelope = {
+    data: BroadcastCampaignCreateManySenderInput | BroadcastCampaignCreateManySenderInput[]
+  }
+
   export type CompanyUpsertWithWhereUniqueWithoutOwnerInput = {
     where: CompanyWhereUniqueInput
     update: XOR<CompanyUpdateWithoutOwnerInput, CompanyUncheckedUpdateWithoutOwnerInput>
@@ -19295,6 +23004,44 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"Contact"> | Date | string
   }
 
+  export type BroadcastCampaignUpsertWithWhereUniqueWithoutSenderInput = {
+    where: BroadcastCampaignWhereUniqueInput
+    update: XOR<BroadcastCampaignUpdateWithoutSenderInput, BroadcastCampaignUncheckedUpdateWithoutSenderInput>
+    create: XOR<BroadcastCampaignCreateWithoutSenderInput, BroadcastCampaignUncheckedCreateWithoutSenderInput>
+  }
+
+  export type BroadcastCampaignUpdateWithWhereUniqueWithoutSenderInput = {
+    where: BroadcastCampaignWhereUniqueInput
+    data: XOR<BroadcastCampaignUpdateWithoutSenderInput, BroadcastCampaignUncheckedUpdateWithoutSenderInput>
+  }
+
+  export type BroadcastCampaignUpdateManyWithWhereWithoutSenderInput = {
+    where: BroadcastCampaignScalarWhereInput
+    data: XOR<BroadcastCampaignUpdateManyMutationInput, BroadcastCampaignUncheckedUpdateManyWithoutSenderInput>
+  }
+
+  export type BroadcastCampaignScalarWhereInput = {
+    AND?: BroadcastCampaignScalarWhereInput | BroadcastCampaignScalarWhereInput[]
+    OR?: BroadcastCampaignScalarWhereInput[]
+    NOT?: BroadcastCampaignScalarWhereInput | BroadcastCampaignScalarWhereInput[]
+    id?: StringFilter<"BroadcastCampaign"> | string
+    subject?: StringFilter<"BroadcastCampaign"> | string
+    tagName?: StringFilter<"BroadcastCampaign"> | string
+    templateId?: StringNullableFilter<"BroadcastCampaign"> | string | null
+    senderId?: StringFilter<"BroadcastCampaign"> | string
+    totalRecipients?: IntFilter<"BroadcastCampaign"> | number
+    successCount?: IntFilter<"BroadcastCampaign"> | number
+    failedCount?: IntFilter<"BroadcastCampaign"> | number
+    openCount?: IntFilter<"BroadcastCampaign"> | number
+    uniqueOpenCount?: IntFilter<"BroadcastCampaign"> | number
+    clickCount?: IntFilter<"BroadcastCampaign"> | number
+    uniqueClickCount?: IntFilter<"BroadcastCampaign"> | number
+    status?: StringFilter<"BroadcastCampaign"> | string
+    contentSnapshot?: StringNullableFilter<"BroadcastCampaign"> | string | null
+    createdAt?: DateTimeFilter<"BroadcastCampaign"> | Date | string
+    updatedAt?: DateTimeFilter<"BroadcastCampaign"> | Date | string
+  }
+
   export type UserCreateWithoutCompaniesInput = {
     id?: string
     name: string
@@ -19313,6 +23060,7 @@ export namespace Prisma {
     activities?: ActivityCreateNestedManyWithoutOwnerInput
     opportunities?: OpportunityCreateNestedManyWithoutOwnerInput
     createdContacts?: ContactCreateNestedManyWithoutCreatedByInput
+    broadcastCampaigns?: BroadcastCampaignCreateNestedManyWithoutSenderInput
   }
 
   export type UserUncheckedCreateWithoutCompaniesInput = {
@@ -19333,6 +23081,7 @@ export namespace Prisma {
     activities?: ActivityUncheckedCreateNestedManyWithoutOwnerInput
     opportunities?: OpportunityUncheckedCreateNestedManyWithoutOwnerInput
     createdContacts?: ContactUncheckedCreateNestedManyWithoutCreatedByInput
+    broadcastCampaigns?: BroadcastCampaignUncheckedCreateNestedManyWithoutSenderInput
   }
 
   export type UserCreateOrConnectWithoutCompaniesInput = {
@@ -19466,6 +23215,7 @@ export namespace Prisma {
     activities?: ActivityUpdateManyWithoutOwnerNestedInput
     opportunities?: OpportunityUpdateManyWithoutOwnerNestedInput
     createdContacts?: ContactUpdateManyWithoutCreatedByNestedInput
+    broadcastCampaigns?: BroadcastCampaignUpdateManyWithoutSenderNestedInput
   }
 
   export type UserUncheckedUpdateWithoutCompaniesInput = {
@@ -19486,6 +23236,7 @@ export namespace Prisma {
     activities?: ActivityUncheckedUpdateManyWithoutOwnerNestedInput
     opportunities?: OpportunityUncheckedUpdateManyWithoutOwnerNestedInput
     createdContacts?: ContactUncheckedUpdateManyWithoutCreatedByNestedInput
+    broadcastCampaigns?: BroadcastCampaignUncheckedUpdateManyWithoutSenderNestedInput
   }
 
   export type ContactUpsertWithWhereUniqueWithoutCompanyInput = {
@@ -19640,6 +23391,7 @@ export namespace Prisma {
     companies?: CompanyCreateNestedManyWithoutOwnerInput
     activities?: ActivityCreateNestedManyWithoutOwnerInput
     opportunities?: OpportunityCreateNestedManyWithoutOwnerInput
+    broadcastCampaigns?: BroadcastCampaignCreateNestedManyWithoutSenderInput
   }
 
   export type UserUncheckedCreateWithoutCreatedContactsInput = {
@@ -19660,6 +23412,7 @@ export namespace Prisma {
     companies?: CompanyUncheckedCreateNestedManyWithoutOwnerInput
     activities?: ActivityUncheckedCreateNestedManyWithoutOwnerInput
     opportunities?: OpportunityUncheckedCreateNestedManyWithoutOwnerInput
+    broadcastCampaigns?: BroadcastCampaignUncheckedCreateNestedManyWithoutSenderInput
   }
 
   export type UserCreateOrConnectWithoutCreatedContactsInput = {
@@ -19767,6 +23520,7 @@ export namespace Prisma {
     companies?: CompanyUpdateManyWithoutOwnerNestedInput
     activities?: ActivityUpdateManyWithoutOwnerNestedInput
     opportunities?: OpportunityUpdateManyWithoutOwnerNestedInput
+    broadcastCampaigns?: BroadcastCampaignUpdateManyWithoutSenderNestedInput
   }
 
   export type UserUncheckedUpdateWithoutCreatedContactsInput = {
@@ -19787,6 +23541,7 @@ export namespace Prisma {
     companies?: CompanyUncheckedUpdateManyWithoutOwnerNestedInput
     activities?: ActivityUncheckedUpdateManyWithoutOwnerNestedInput
     opportunities?: OpportunityUncheckedUpdateManyWithoutOwnerNestedInput
+    broadcastCampaigns?: BroadcastCampaignUncheckedUpdateManyWithoutSenderNestedInput
   }
 
   export type UserCreateWithoutActivitiesInput = {
@@ -19807,6 +23562,7 @@ export namespace Prisma {
     companies?: CompanyCreateNestedManyWithoutOwnerInput
     opportunities?: OpportunityCreateNestedManyWithoutOwnerInput
     createdContacts?: ContactCreateNestedManyWithoutCreatedByInput
+    broadcastCampaigns?: BroadcastCampaignCreateNestedManyWithoutSenderInput
   }
 
   export type UserUncheckedCreateWithoutActivitiesInput = {
@@ -19827,6 +23583,7 @@ export namespace Prisma {
     companies?: CompanyUncheckedCreateNestedManyWithoutOwnerInput
     opportunities?: OpportunityUncheckedCreateNestedManyWithoutOwnerInput
     createdContacts?: ContactUncheckedCreateNestedManyWithoutCreatedByInput
+    broadcastCampaigns?: BroadcastCampaignUncheckedCreateNestedManyWithoutSenderInput
   }
 
   export type UserCreateOrConnectWithoutActivitiesInput = {
@@ -19863,6 +23620,7 @@ export namespace Prisma {
     companies?: CompanyUpdateManyWithoutOwnerNestedInput
     opportunities?: OpportunityUpdateManyWithoutOwnerNestedInput
     createdContacts?: ContactUpdateManyWithoutCreatedByNestedInput
+    broadcastCampaigns?: BroadcastCampaignUpdateManyWithoutSenderNestedInput
   }
 
   export type UserUncheckedUpdateWithoutActivitiesInput = {
@@ -19883,6 +23641,7 @@ export namespace Prisma {
     companies?: CompanyUncheckedUpdateManyWithoutOwnerNestedInput
     opportunities?: OpportunityUncheckedUpdateManyWithoutOwnerNestedInput
     createdContacts?: ContactUncheckedUpdateManyWithoutCreatedByNestedInput
+    broadcastCampaigns?: BroadcastCampaignUncheckedUpdateManyWithoutSenderNestedInput
   }
 
   export type CompanyCreateWithoutOpportunitiesInput = {
@@ -19952,6 +23711,7 @@ export namespace Prisma {
     companies?: CompanyCreateNestedManyWithoutOwnerInput
     activities?: ActivityCreateNestedManyWithoutOwnerInput
     createdContacts?: ContactCreateNestedManyWithoutCreatedByInput
+    broadcastCampaigns?: BroadcastCampaignCreateNestedManyWithoutSenderInput
   }
 
   export type UserUncheckedCreateWithoutOpportunitiesInput = {
@@ -19972,6 +23732,7 @@ export namespace Prisma {
     companies?: CompanyUncheckedCreateNestedManyWithoutOwnerInput
     activities?: ActivityUncheckedCreateNestedManyWithoutOwnerInput
     createdContacts?: ContactUncheckedCreateNestedManyWithoutCreatedByInput
+    broadcastCampaigns?: BroadcastCampaignUncheckedCreateNestedManyWithoutSenderInput
   }
 
   export type UserCreateOrConnectWithoutOpportunitiesInput = {
@@ -20063,6 +23824,7 @@ export namespace Prisma {
     companies?: CompanyUpdateManyWithoutOwnerNestedInput
     activities?: ActivityUpdateManyWithoutOwnerNestedInput
     createdContacts?: ContactUpdateManyWithoutCreatedByNestedInput
+    broadcastCampaigns?: BroadcastCampaignUpdateManyWithoutSenderNestedInput
   }
 
   export type UserUncheckedUpdateWithoutOpportunitiesInput = {
@@ -20083,6 +23845,7 @@ export namespace Prisma {
     companies?: CompanyUncheckedUpdateManyWithoutOwnerNestedInput
     activities?: ActivityUncheckedUpdateManyWithoutOwnerNestedInput
     createdContacts?: ContactUncheckedUpdateManyWithoutCreatedByNestedInput
+    broadcastCampaigns?: BroadcastCampaignUncheckedUpdateManyWithoutSenderNestedInput
   }
 
   export type CompanyCreateWithoutTagsInput = {
@@ -20199,6 +23962,281 @@ export namespace Prisma {
     data: XOR<ContactUpdateManyMutationInput, ContactUncheckedUpdateManyWithoutTagsInput>
   }
 
+  export type UserCreateWithoutBroadcastCampaignsInput = {
+    id?: string
+    name: string
+    email: string
+    password: string
+    role?: string
+    status?: string
+    department?: string | null
+    employeeId?: string | null
+    jobTitle?: string | null
+    region?: string | null
+    defaultLanguage?: string
+    exclusiveMode?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    companies?: CompanyCreateNestedManyWithoutOwnerInput
+    activities?: ActivityCreateNestedManyWithoutOwnerInput
+    opportunities?: OpportunityCreateNestedManyWithoutOwnerInput
+    createdContacts?: ContactCreateNestedManyWithoutCreatedByInput
+  }
+
+  export type UserUncheckedCreateWithoutBroadcastCampaignsInput = {
+    id?: string
+    name: string
+    email: string
+    password: string
+    role?: string
+    status?: string
+    department?: string | null
+    employeeId?: string | null
+    jobTitle?: string | null
+    region?: string | null
+    defaultLanguage?: string
+    exclusiveMode?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    companies?: CompanyUncheckedCreateNestedManyWithoutOwnerInput
+    activities?: ActivityUncheckedCreateNestedManyWithoutOwnerInput
+    opportunities?: OpportunityUncheckedCreateNestedManyWithoutOwnerInput
+    createdContacts?: ContactUncheckedCreateNestedManyWithoutCreatedByInput
+  }
+
+  export type UserCreateOrConnectWithoutBroadcastCampaignsInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutBroadcastCampaignsInput, UserUncheckedCreateWithoutBroadcastCampaignsInput>
+  }
+
+  export type BroadcastRecipientCreateWithoutCampaignInput = {
+    id?: string
+    email: string
+    contactName: string
+    companyName: string
+    status?: string
+    errorMessage?: string | null
+    trackingToken: string
+    openedAt?: Date | string | null
+    lastOpenedAt?: Date | string | null
+    openCount?: number
+    clickedAt?: Date | string | null
+    lastClickedAt?: Date | string | null
+    clickCount?: number
+    lastClickedUrl?: string | null
+    createdAt?: Date | string
+  }
+
+  export type BroadcastRecipientUncheckedCreateWithoutCampaignInput = {
+    id?: string
+    email: string
+    contactName: string
+    companyName: string
+    status?: string
+    errorMessage?: string | null
+    trackingToken: string
+    openedAt?: Date | string | null
+    lastOpenedAt?: Date | string | null
+    openCount?: number
+    clickedAt?: Date | string | null
+    lastClickedAt?: Date | string | null
+    clickCount?: number
+    lastClickedUrl?: string | null
+    createdAt?: Date | string
+  }
+
+  export type BroadcastRecipientCreateOrConnectWithoutCampaignInput = {
+    where: BroadcastRecipientWhereUniqueInput
+    create: XOR<BroadcastRecipientCreateWithoutCampaignInput, BroadcastRecipientUncheckedCreateWithoutCampaignInput>
+  }
+
+  export type BroadcastRecipientCreateManyCampaignInputEnvelope = {
+    data: BroadcastRecipientCreateManyCampaignInput | BroadcastRecipientCreateManyCampaignInput[]
+  }
+
+  export type UserUpsertWithoutBroadcastCampaignsInput = {
+    update: XOR<UserUpdateWithoutBroadcastCampaignsInput, UserUncheckedUpdateWithoutBroadcastCampaignsInput>
+    create: XOR<UserCreateWithoutBroadcastCampaignsInput, UserUncheckedCreateWithoutBroadcastCampaignsInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutBroadcastCampaignsInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutBroadcastCampaignsInput, UserUncheckedUpdateWithoutBroadcastCampaignsInput>
+  }
+
+  export type UserUpdateWithoutBroadcastCampaignsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    role?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    department?: NullableStringFieldUpdateOperationsInput | string | null
+    employeeId?: NullableStringFieldUpdateOperationsInput | string | null
+    jobTitle?: NullableStringFieldUpdateOperationsInput | string | null
+    region?: NullableStringFieldUpdateOperationsInput | string | null
+    defaultLanguage?: StringFieldUpdateOperationsInput | string
+    exclusiveMode?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    companies?: CompanyUpdateManyWithoutOwnerNestedInput
+    activities?: ActivityUpdateManyWithoutOwnerNestedInput
+    opportunities?: OpportunityUpdateManyWithoutOwnerNestedInput
+    createdContacts?: ContactUpdateManyWithoutCreatedByNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutBroadcastCampaignsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    role?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    department?: NullableStringFieldUpdateOperationsInput | string | null
+    employeeId?: NullableStringFieldUpdateOperationsInput | string | null
+    jobTitle?: NullableStringFieldUpdateOperationsInput | string | null
+    region?: NullableStringFieldUpdateOperationsInput | string | null
+    defaultLanguage?: StringFieldUpdateOperationsInput | string
+    exclusiveMode?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    companies?: CompanyUncheckedUpdateManyWithoutOwnerNestedInput
+    activities?: ActivityUncheckedUpdateManyWithoutOwnerNestedInput
+    opportunities?: OpportunityUncheckedUpdateManyWithoutOwnerNestedInput
+    createdContacts?: ContactUncheckedUpdateManyWithoutCreatedByNestedInput
+  }
+
+  export type BroadcastRecipientUpsertWithWhereUniqueWithoutCampaignInput = {
+    where: BroadcastRecipientWhereUniqueInput
+    update: XOR<BroadcastRecipientUpdateWithoutCampaignInput, BroadcastRecipientUncheckedUpdateWithoutCampaignInput>
+    create: XOR<BroadcastRecipientCreateWithoutCampaignInput, BroadcastRecipientUncheckedCreateWithoutCampaignInput>
+  }
+
+  export type BroadcastRecipientUpdateWithWhereUniqueWithoutCampaignInput = {
+    where: BroadcastRecipientWhereUniqueInput
+    data: XOR<BroadcastRecipientUpdateWithoutCampaignInput, BroadcastRecipientUncheckedUpdateWithoutCampaignInput>
+  }
+
+  export type BroadcastRecipientUpdateManyWithWhereWithoutCampaignInput = {
+    where: BroadcastRecipientScalarWhereInput
+    data: XOR<BroadcastRecipientUpdateManyMutationInput, BroadcastRecipientUncheckedUpdateManyWithoutCampaignInput>
+  }
+
+  export type BroadcastRecipientScalarWhereInput = {
+    AND?: BroadcastRecipientScalarWhereInput | BroadcastRecipientScalarWhereInput[]
+    OR?: BroadcastRecipientScalarWhereInput[]
+    NOT?: BroadcastRecipientScalarWhereInput | BroadcastRecipientScalarWhereInput[]
+    id?: StringFilter<"BroadcastRecipient"> | string
+    campaignId?: StringFilter<"BroadcastRecipient"> | string
+    email?: StringFilter<"BroadcastRecipient"> | string
+    contactName?: StringFilter<"BroadcastRecipient"> | string
+    companyName?: StringFilter<"BroadcastRecipient"> | string
+    status?: StringFilter<"BroadcastRecipient"> | string
+    errorMessage?: StringNullableFilter<"BroadcastRecipient"> | string | null
+    trackingToken?: StringFilter<"BroadcastRecipient"> | string
+    openedAt?: DateTimeNullableFilter<"BroadcastRecipient"> | Date | string | null
+    lastOpenedAt?: DateTimeNullableFilter<"BroadcastRecipient"> | Date | string | null
+    openCount?: IntFilter<"BroadcastRecipient"> | number
+    clickedAt?: DateTimeNullableFilter<"BroadcastRecipient"> | Date | string | null
+    lastClickedAt?: DateTimeNullableFilter<"BroadcastRecipient"> | Date | string | null
+    clickCount?: IntFilter<"BroadcastRecipient"> | number
+    lastClickedUrl?: StringNullableFilter<"BroadcastRecipient"> | string | null
+    createdAt?: DateTimeFilter<"BroadcastRecipient"> | Date | string
+  }
+
+  export type BroadcastCampaignCreateWithoutRecipientsInput = {
+    id?: string
+    subject: string
+    tagName: string
+    templateId?: string | null
+    totalRecipients?: number
+    successCount?: number
+    failedCount?: number
+    openCount?: number
+    uniqueOpenCount?: number
+    clickCount?: number
+    uniqueClickCount?: number
+    status?: string
+    contentSnapshot?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    sender: UserCreateNestedOneWithoutBroadcastCampaignsInput
+  }
+
+  export type BroadcastCampaignUncheckedCreateWithoutRecipientsInput = {
+    id?: string
+    subject: string
+    tagName: string
+    templateId?: string | null
+    senderId: string
+    totalRecipients?: number
+    successCount?: number
+    failedCount?: number
+    openCount?: number
+    uniqueOpenCount?: number
+    clickCount?: number
+    uniqueClickCount?: number
+    status?: string
+    contentSnapshot?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type BroadcastCampaignCreateOrConnectWithoutRecipientsInput = {
+    where: BroadcastCampaignWhereUniqueInput
+    create: XOR<BroadcastCampaignCreateWithoutRecipientsInput, BroadcastCampaignUncheckedCreateWithoutRecipientsInput>
+  }
+
+  export type BroadcastCampaignUpsertWithoutRecipientsInput = {
+    update: XOR<BroadcastCampaignUpdateWithoutRecipientsInput, BroadcastCampaignUncheckedUpdateWithoutRecipientsInput>
+    create: XOR<BroadcastCampaignCreateWithoutRecipientsInput, BroadcastCampaignUncheckedCreateWithoutRecipientsInput>
+    where?: BroadcastCampaignWhereInput
+  }
+
+  export type BroadcastCampaignUpdateToOneWithWhereWithoutRecipientsInput = {
+    where?: BroadcastCampaignWhereInput
+    data: XOR<BroadcastCampaignUpdateWithoutRecipientsInput, BroadcastCampaignUncheckedUpdateWithoutRecipientsInput>
+  }
+
+  export type BroadcastCampaignUpdateWithoutRecipientsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    subject?: StringFieldUpdateOperationsInput | string
+    tagName?: StringFieldUpdateOperationsInput | string
+    templateId?: NullableStringFieldUpdateOperationsInput | string | null
+    totalRecipients?: IntFieldUpdateOperationsInput | number
+    successCount?: IntFieldUpdateOperationsInput | number
+    failedCount?: IntFieldUpdateOperationsInput | number
+    openCount?: IntFieldUpdateOperationsInput | number
+    uniqueOpenCount?: IntFieldUpdateOperationsInput | number
+    clickCount?: IntFieldUpdateOperationsInput | number
+    uniqueClickCount?: IntFieldUpdateOperationsInput | number
+    status?: StringFieldUpdateOperationsInput | string
+    contentSnapshot?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sender?: UserUpdateOneRequiredWithoutBroadcastCampaignsNestedInput
+  }
+
+  export type BroadcastCampaignUncheckedUpdateWithoutRecipientsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    subject?: StringFieldUpdateOperationsInput | string
+    tagName?: StringFieldUpdateOperationsInput | string
+    templateId?: NullableStringFieldUpdateOperationsInput | string | null
+    senderId?: StringFieldUpdateOperationsInput | string
+    totalRecipients?: IntFieldUpdateOperationsInput | number
+    successCount?: IntFieldUpdateOperationsInput | number
+    failedCount?: IntFieldUpdateOperationsInput | number
+    openCount?: IntFieldUpdateOperationsInput | number
+    uniqueOpenCount?: IntFieldUpdateOperationsInput | number
+    clickCount?: IntFieldUpdateOperationsInput | number
+    uniqueClickCount?: IntFieldUpdateOperationsInput | number
+    status?: StringFieldUpdateOperationsInput | string
+    contentSnapshot?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type CompanyCreateManyOwnerInput = {
     id?: string
     name: string
@@ -20249,6 +24287,24 @@ export namespace Prisma {
     email?: string | null
     linkedinUrl?: string | null
     isPrimary?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type BroadcastCampaignCreateManySenderInput = {
+    id?: string
+    subject: string
+    tagName: string
+    templateId?: string | null
+    totalRecipients?: number
+    successCount?: number
+    failedCount?: number
+    openCount?: number
+    uniqueOpenCount?: number
+    clickCount?: number
+    uniqueClickCount?: number
+    status?: string
+    contentSnapshot?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -20419,6 +24475,62 @@ export namespace Prisma {
     email?: NullableStringFieldUpdateOperationsInput | string | null
     linkedinUrl?: NullableStringFieldUpdateOperationsInput | string | null
     isPrimary?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BroadcastCampaignUpdateWithoutSenderInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    subject?: StringFieldUpdateOperationsInput | string
+    tagName?: StringFieldUpdateOperationsInput | string
+    templateId?: NullableStringFieldUpdateOperationsInput | string | null
+    totalRecipients?: IntFieldUpdateOperationsInput | number
+    successCount?: IntFieldUpdateOperationsInput | number
+    failedCount?: IntFieldUpdateOperationsInput | number
+    openCount?: IntFieldUpdateOperationsInput | number
+    uniqueOpenCount?: IntFieldUpdateOperationsInput | number
+    clickCount?: IntFieldUpdateOperationsInput | number
+    uniqueClickCount?: IntFieldUpdateOperationsInput | number
+    status?: StringFieldUpdateOperationsInput | string
+    contentSnapshot?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    recipients?: BroadcastRecipientUpdateManyWithoutCampaignNestedInput
+  }
+
+  export type BroadcastCampaignUncheckedUpdateWithoutSenderInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    subject?: StringFieldUpdateOperationsInput | string
+    tagName?: StringFieldUpdateOperationsInput | string
+    templateId?: NullableStringFieldUpdateOperationsInput | string | null
+    totalRecipients?: IntFieldUpdateOperationsInput | number
+    successCount?: IntFieldUpdateOperationsInput | number
+    failedCount?: IntFieldUpdateOperationsInput | number
+    openCount?: IntFieldUpdateOperationsInput | number
+    uniqueOpenCount?: IntFieldUpdateOperationsInput | number
+    clickCount?: IntFieldUpdateOperationsInput | number
+    uniqueClickCount?: IntFieldUpdateOperationsInput | number
+    status?: StringFieldUpdateOperationsInput | string
+    contentSnapshot?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    recipients?: BroadcastRecipientUncheckedUpdateManyWithoutCampaignNestedInput
+  }
+
+  export type BroadcastCampaignUncheckedUpdateManyWithoutSenderInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    subject?: StringFieldUpdateOperationsInput | string
+    tagName?: StringFieldUpdateOperationsInput | string
+    templateId?: NullableStringFieldUpdateOperationsInput | string | null
+    totalRecipients?: IntFieldUpdateOperationsInput | number
+    successCount?: IntFieldUpdateOperationsInput | number
+    failedCount?: IntFieldUpdateOperationsInput | number
+    openCount?: IntFieldUpdateOperationsInput | number
+    uniqueOpenCount?: IntFieldUpdateOperationsInput | number
+    clickCount?: IntFieldUpdateOperationsInput | number
+    uniqueClickCount?: IntFieldUpdateOperationsInput | number
+    status?: StringFieldUpdateOperationsInput | string
+    contentSnapshot?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -20691,6 +24803,78 @@ export namespace Prisma {
     createdById?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BroadcastRecipientCreateManyCampaignInput = {
+    id?: string
+    email: string
+    contactName: string
+    companyName: string
+    status?: string
+    errorMessage?: string | null
+    trackingToken: string
+    openedAt?: Date | string | null
+    lastOpenedAt?: Date | string | null
+    openCount?: number
+    clickedAt?: Date | string | null
+    lastClickedAt?: Date | string | null
+    clickCount?: number
+    lastClickedUrl?: string | null
+    createdAt?: Date | string
+  }
+
+  export type BroadcastRecipientUpdateWithoutCampaignInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    contactName?: StringFieldUpdateOperationsInput | string
+    companyName?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    errorMessage?: NullableStringFieldUpdateOperationsInput | string | null
+    trackingToken?: StringFieldUpdateOperationsInput | string
+    openedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    lastOpenedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    openCount?: IntFieldUpdateOperationsInput | number
+    clickedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    lastClickedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    clickCount?: IntFieldUpdateOperationsInput | number
+    lastClickedUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BroadcastRecipientUncheckedUpdateWithoutCampaignInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    contactName?: StringFieldUpdateOperationsInput | string
+    companyName?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    errorMessage?: NullableStringFieldUpdateOperationsInput | string | null
+    trackingToken?: StringFieldUpdateOperationsInput | string
+    openedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    lastOpenedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    openCount?: IntFieldUpdateOperationsInput | number
+    clickedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    lastClickedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    clickCount?: IntFieldUpdateOperationsInput | number
+    lastClickedUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BroadcastRecipientUncheckedUpdateManyWithoutCampaignInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    contactName?: StringFieldUpdateOperationsInput | string
+    companyName?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    errorMessage?: NullableStringFieldUpdateOperationsInput | string | null
+    trackingToken?: StringFieldUpdateOperationsInput | string
+    openedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    lastOpenedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    openCount?: IntFieldUpdateOperationsInput | number
+    clickedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    lastClickedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    clickCount?: IntFieldUpdateOperationsInput | number
+    lastClickedUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
 
