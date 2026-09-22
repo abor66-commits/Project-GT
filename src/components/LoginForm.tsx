@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useTranslation } from '@/lib/i18n/LanguageContext';
@@ -11,6 +11,43 @@ export default function LoginForm() {
   const [error, setError] = useState<string | null>(null);
   const [isPending, setIsPending] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [emailValue, setEmailValue] = useState('');
+  const [passwordValue, setPasswordValue] = useState('');
+
+  // Handle URL recovery if browser previously performed a native GET submit
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const url = new URL(window.location.href);
+      const emailParam = url.searchParams.get('email');
+      const passParam = url.searchParams.get('password');
+      if (emailParam) setEmailValue(emailParam);
+      if (passParam) setPasswordValue(passParam);
+      if (emailParam || passParam) {
+        window.history.replaceState({}, '', window.location.pathname);
+        if (emailParam && passParam) {
+          setIsPending(true);
+          fetch('/api/auth/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: emailParam, password: passParam }),
+          })
+            .then(res => res.json().then(data => ({ ok: res.ok, data })))
+            .then(({ ok, data }) => {
+              if (ok) {
+                window.location.href = '/';
+              } else {
+                setError(data?.error ?? '登入失敗');
+                setIsPending(false);
+              }
+            })
+            .catch(() => {
+              setError('系統發生錯誤，請稍後再試');
+              setIsPending(false);
+            });
+        }
+      }
+    }
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -18,8 +55,8 @@ export default function LoginForm() {
     setError(null);
 
     const formData = new FormData(e.currentTarget);
-    const email = formData.get('email') as string;
-    const password = formData.get('password') as string;
+    const email = (formData.get('email') as string) || emailValue;
+    const password = (formData.get('password') as string) || passwordValue;
 
     try {
       const res = await fetch('/api/auth/login', {
@@ -30,19 +67,18 @@ export default function LoginForm() {
       const data = await res.json();
       if (!res.ok) {
         setError(data.error ?? '登入失敗');
+        setIsPending(false);
       } else {
-        router.push('/');
-        router.refresh();
+        window.location.href = '/';
       }
     } catch {
       setError('系統發生錯誤，請稍後再試');
-    } finally {
       setIsPending(false);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-md">
+    <form onSubmit={handleSubmit} method="POST" action="#" className="flex flex-col gap-md">
       {error && (
         <div style={{ 
           padding: '12px', 
@@ -64,6 +100,8 @@ export default function LoginForm() {
           id="email"
           name="email"
           type="email" 
+          value={emailValue}
+          onChange={(e) => setEmailValue(e.target.value)}
           autoComplete="username"
           style={{ padding: '12px', borderRadius: '8px', border: '1px solid var(--border-color)', outline: 'none' }} 
           required 
@@ -80,6 +118,8 @@ export default function LoginForm() {
             id="password"
             name="password"
             type={showPassword ? "text" : "password"} 
+            value={passwordValue}
+            onChange={(e) => setPasswordValue(e.target.value)}
             autoComplete="current-password"
             style={{ width: '100%', padding: '12px', paddingRight: '45px', borderRadius: '8px', border: '1px solid var(--border-color)', outline: 'none' }} 
             required 
