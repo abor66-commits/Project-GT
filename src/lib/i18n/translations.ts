@@ -406,7 +406,7 @@ export const translations = {
     'common.all': '全部',
     'common.tag': '標籤',
     
-    'login.title': '昕奇雲端客戶管理系統',
+    'login.title': '上奇客戶管理系統',
     'login.subtitle': '請登入您的帳號',
     'login.email': '電子郵件地址',
     'login.password': '密碼',
@@ -1022,7 +1022,7 @@ export const translations = {
     'common.all': 'All',
     'common.tag': 'Tag',
     
-    'login.title': 'GCS CRM Platform',
+    'login.title': 'GT CRM Platform',
     'login.subtitle': 'Please sign in to your account',
     'login.email': 'Email Address',
     'login.password': 'Password',
@@ -1637,7 +1637,7 @@ export const translations = {
     'common.all': 'すべて',
     'common.tag': 'タグ',
     
-    'login.title': 'GCS CRMプラットフォーム',
+    'login.title': 'GT CRMプラットフォーム',
     'login.subtitle': 'アカウントにログインしてください',
     'login.email': 'メールアドレス',
     'login.password': 'パスワード',

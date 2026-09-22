@@ -7,13 +7,13 @@ import { LanguageProvider } from "@/lib/i18n/LanguageContext";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "GCSCRM | GrandTech Cloud Services",
-  description: "Enterprise CRM Platform for GrandTech Cloud",
+  title: "GT CRM | 上奇客戶管理系統",
+  description: "Enterprise CRM Platform for GrandTech",
   manifest: "/manifest.json",
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
-    title: "GCSCRM",
+    title: "GT CRM",
   },
 };
 

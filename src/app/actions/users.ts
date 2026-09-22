@@ -117,8 +117,8 @@ export async function inviteUser(formData: FormData) {
       html: `
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 32px; border: 1px solid #e2e8f0; border-radius: 16px; background: white;">
           <div style="text-align: center; margin-bottom: 24px;">
-            <h1 style="color: #1e40af; font-size: 1.5rem; font-weight: 900; margin: 0;">GCS CRM</h1>
-            <p style="color: #64748b; font-size: 0.9rem;">昕奇雲端客戶管理系統</p>
+            <h1 style="color: #1e40af; font-size: 1.5rem; font-weight: 900; margin: 0;">GT CRM</h1>
+            <p style="color: #64748b; font-size: 0.9rem;">上奇客戶管理系統</p>
           </div>
           
           <h2 style="color: #0f172a; margin-bottom: 16px;">${greeting}</h2>
@@ -195,8 +195,8 @@ export async function resendInvitation(userId: string) {
     html: `
       <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 32px; border: 1px solid #e2e8f0; border-radius: 16px; background: white;">
         <div style="text-align: center; margin-bottom: 24px;">
-          <h1 style="color: #1e40af; font-size: 1.5rem; font-weight: 900; margin: 0;">GCS CRM</h1>
-          <p style="color: #64748b; font-size: 0.9rem;">昕奇雲端客戶管理系統</p>
+          <h1 style="color: #1e40af; font-size: 1.5rem; font-weight: 900; margin: 0;">GT CRM</h1>
+          <p style="color: #64748b; font-size: 0.9rem;">上奇客戶管理系統</p>
         </div>
         
         <h2 style="color: #0f172a; margin-bottom: 16px;">${greeting}</h2>

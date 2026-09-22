@@ -1,7 +1,7 @@
 {
-  "name": "GCSCRM",
-  "short_name": "GCSCRM",
-  "description": "GrandTech Cloud 業務管理系統",
+  "name": "上奇客戶管理系統",
+  "short_name": "GT CRM",
+  "description": "GrandTech 上奇客戶管理系統",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
